@@ -1,0 +1,92 @@
+body {
+    background: url("../images/sports-rock-climbing.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar, .navbar-default{
+    background: rgba(0,0,0,0.2);
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid gold;
+    color: gold;
+}
+.navbar-default .navbar-nav > li > a {
+    color: gold;
+    font-size: large;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: darkgoldenrod;
+}
+.navbar-default .navbar-brand {
+    color: gold;
+}
+.navbar-default .navbar-brand:hover {
+    color: darkgoldenrod;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: gold;
+    background: rgba(100,100,100,0.5);
+}
+.btn-default {
+    color: gold;
+    background: rgba(0,0,0,0.2);
+    border-color: gold;
+}
+.btn-default:hover{
+    color: darkgoldenrod;
+    background: rgba(100,100,100,0.5);
+    border-color: darkgoldenrod;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: darkgoldenrod;
+    background: rgba(100,100,100,0.5);
+}
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: gold;
+    white-space: nowrap;
+}
+.dropdown-menu > li > a:hover {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: darkgoldenrod;
+    white-space: nowrap;
+    background: rgba(100,100,100,0.5);
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgba(100,100,100,0.5);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid darkgoldenrod;
+    border-radius: 4px;
+}
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: darkgoldenrod;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: darkgoldenrod;
+}
