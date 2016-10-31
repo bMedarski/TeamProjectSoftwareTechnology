@@ -21,6 +21,7 @@ body {
 }
 .navbar-default .navbar-brand {
     color: gold;
+    font-size: 25px;
 }
 .navbar-default .navbar-brand:hover {
     color: darkgoldenrod;
@@ -60,7 +61,7 @@ body {
     line-height: 1.42857143;
     color: darkgoldenrod;
     white-space: nowrap;
-    background: rgba(100,100,100,0.5);
+    background: rgba(100,100,100,0.8);
 }
 .dropdown-menu {
     position: absolute;
@@ -75,7 +76,7 @@ body {
     font-size: 14px;
     text-align: left;
     list-style: none;
-    background-color: rgba(100,100,100,0.5);
+    background-color: rgba(100,100,100,0.8);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid darkgoldenrod;
@@ -89,4 +90,14 @@ body {
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: darkgoldenrod;
+}
+.form-control{
+    background-color: rgba(100,100,100,0.8);
+    border: 1px solid gold;
+}
+.form-control:focus{
+    background-color: rgba(100,100,100,0.8);
+    border: 1px solid darkgoldenrod;
+    color: gold;
+
 }
