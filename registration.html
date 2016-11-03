@@ -24,7 +24,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">My Climbs</a></li>
+                    <li class="active"><a href="#">My Climbs <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">Link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -54,7 +54,50 @@
     </nav>
 </header>
 <main>
+    <div class="container body-content span=8 offset=2 body-main col-sm-4 col-sm-offset-4">
+        <form action="" class="form-horizontal">
+            <fieldset>
+                <legend>Registration</legend>
 
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label">First Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name"/>
+                    </div>
+                </div><div class="form-group">
+                <label for="" class="col-sm-4 control-label">Last Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"/>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label">Repeat Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Repeat Password"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <button type="reset" class="btn btn-default">Reset</button>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </main>
 <footer>
     <nav class="navbar navbar-default navbar-fixed-bottom">
