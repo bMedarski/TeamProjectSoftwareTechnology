@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>SoftUni blog</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/my-style.css'/>
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body id="body">
     <header>
         <div class="navbar navbar-default navbar-fixed-top text-uppercase">
             <div class="container">
@@ -31,7 +33,7 @@
                                     </ul>
                                 </li>
                             {{/if}}
-                            <li><a href="/user/details">Welcome({{user.email}})</a></li>
+                            <li><a href="/user/details">{{user.fullName}}</a></li>
                             <li><a href="/article/create">New Article</a></li>
                             <li><a href="/user/logout">Logout</a></li>
                         </ul>
