@@ -266,3 +266,13 @@ small .author{
     text-shadow: 2px 2px black;
     color:    darkgoldenrod;
 }
+.categories{
+    width: 23%;
+}
+.footer{
+    min-height: 0;
+}
+.btn-xs, .btn-group-xs > .btn{
+    padding: 3px 7px;
+}
+
