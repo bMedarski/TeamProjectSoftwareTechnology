@@ -2,11 +2,24 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Category = mongoose.model('Category');
 const Tag = mongoose.model('Tag');
+const Article = mongoose.model('Article');
 
 module.exports = {
-    index: (req, res) => {
+    /*index: (req, res) => {
         Category.find({}).then(categories => {
             res.render('home/index',{categories: categories});
+        })
+    },*/
+
+    index: (req, res) => {
+
+
+        Article.find({}).limit(3).populate('author tags').then(articles => {
+
+                let dateString = articles.date;
+                Category.find({}).then(categories => {
+                res.render('home/index', {articles: articles,categories: categories});
+            })
         })
     },
 
