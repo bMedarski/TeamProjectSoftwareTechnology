@@ -1,4 +1,4 @@
-<div class="container body-content body-main">
+<!--<div class="container body-content body-main">
     <div class="row">
         {{#each categories}}
             <div class="col-md-6">
@@ -11,5 +11,91 @@
                 </header>
             </div>
         {{/each}}
+    </div>
+</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 body-main categories">
+            <div class="well">
+                <h4>Blog Categories</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled">
+                            {{#each categories}}
+                                <li><a href="/category/{{ this.id }}">{{ this.name }} ({{ this.articles.length }})</a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="well">
+                <h4>Side Widget Well</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+            </div>
+        </div>
+        {{#each articles}}
+        <div class="col-md-offset-3">
+            <!--<div class="body-main">
+                <h1 class="page-header">
+                    Page Heading
+                </h1>
+            </div>-->
+            <div class="body-main">
+                <h2>
+                    <a href="#" class="mainColor">{{ this.title }}</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.html" class="mainColor">{{ this.author.fullName }}</a>
+                </p>
+                <p><span class=""></span>{{this.date}}</p>
+                <div class="pull-left" style="margin-bottom: 10px">
+                    {{# each this.tags}}
+                        <a class="btn btn-default btn-xs" style="padding:5px 7px;" href="/tag/{{this.name}}">{{ this.name }}</a>
+                    {{/each}}
+                </div>
+                <img class="img-responsive" src="images/2.jpg" alt="">
+
+                <p> {{ this.content }}</p>
+                <a class="btn btn-default" href="/article/details/{{this.id}}">Read More <span class=""></span></a>
+            </div>
+
+            <!--<div class="body-main">
+
+                <div class="body-main">
+                    <ul class="pager">
+                        <li class="previous">
+                            <a href="#">&larr; Older</a>
+                        </li>
+                        <li class="next">
+                            <a href="#">Newer &rarr;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+        </div>
+        {{/ each}}
+
+        <!--<div class="span=3 body-main">
+            <div class="well">
+                <h4 style="text-decoration: underline">Blog Categories</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled">
+                        {{#each categories}}
+                            <li><a href="/category/{{ this.id }}">{{ this.name }} ({{ this.articles.length }})</a>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="well">
+                <h4>Side Widget Well</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+            </div>
+        </div>-->
     </div>
 </div>
