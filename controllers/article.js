@@ -56,6 +56,7 @@ module.exports = {
 
     details: (req, res) => {
         let id = req.params.id;
+
         Article.findById(id).populate('author tags').then(article => {
             if (!req.user){
                 res.render('article/details', { article: article, isUserAuthorized: false});
@@ -212,5 +213,17 @@ module.exports = {
                 });
             });
         });
+    },
+
+    searchArticleGet: (req,res) => {
+
+        let searchArgs = req.body;
+        Article.find({}).then(article => {
+
+            res.render('home/article', {articles:article});
+
+        });
+
+        res.render('home/article');
     }
 };

@@ -1,5 +1,8 @@
 const User = require('mongoose').model('User');
 const Role = require('mongoose').model('Role');
+const Article = require('mongoose').model('Article');
+const Category = require('mongoose').model('Category');
+const Tag = require('mongoose').model('Tag');
 const encryption = require('./../utilities/encryption');
 
 module.exports = {
@@ -88,5 +91,60 @@ module.exports = {
     logout: (req, res) => {
         req.logOut();
         res.redirect('/');
+    },
+
+    detailsGet: (req, res) => {
+        let user = req.user;
+        //console.log(user);
+        let userId = user.id;
+        //console.log(userId);
+        Article.find({author:userId}).populate('author').then(article => {
+            //console.log(article);
+            res.render('user/details', {user:user,articles:article});
+        });
+        /*User.findById(user.id).then(user =>{
+                Article.findOne({}).populate('title')
+                    .then(article => {
+            console.log(article);
+
+            res.render('user/details', {user:user,articles:article});
+        });
+        });*/
+
+        //res.render('user/details', {user:user});
+        //console.log(user.articles);
+        //Article.findById({id}).then(article => {res.render('user/details', {user:user});
+        //});
+        //console.log(user.articles);
+    },
+    detailsPost: (req, res) => {
+        let detailsArgs = req.body;
+        let id = req.user.id;
+        //console.log(id);
+        //console.log(detailsArgs);
+
+        User.findOne({_id:id}).then(user => {
+            //console.log(user);
+            let errorMsg = '';
+            if (detailsArgs.password !== detailsArgs.repeatedPassword) {
+                errorMsg = 'Passwords do not match!'
+            }
+
+            if (errorMsg) {
+                detailsArgs.error = errorMsg;
+                res.render('user/details', detailsArgs)
+            } else {
+                /*user.setPassword(detailsArgs.password, function() {
+                    user.save();
+                });*/
+                let salt = encryption.generateSalt();
+                let passwordHash = encryption.hashPassword(detailsArgs.password, salt);
+                user.passwordHash=passwordHash;
+                user.salt=salt;
+                user.fullName = detailsArgs.fullName;
+                user.save();
+                res.redirect('/');
+            }
+        })
     }
 };

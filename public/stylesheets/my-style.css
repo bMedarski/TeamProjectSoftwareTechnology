@@ -1,5 +1,5 @@
 #body {
-    background: url("../images/cl2.jpg") no-repeat center center fixed;
+    background: url("../images/Dolomites2.JPG") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -222,7 +222,9 @@ h2{
     margin-top: 75px;
 }
 .img-responsive{
-    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 58%;
+    float: right;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    darkgoldenrod;
@@ -275,4 +277,25 @@ small .author{
 .btn-xs, .btn-group-xs > .btn{
     padding: 3px 7px;
 }
-
+table .info,
+.table .info {
+    color: red;
+}
+.main-article{
+    overflow: hidden;
+}
+.text{
+    height: 510px;
+    overflow: hidden;
+    text-align: justify;
+    font-size: 19px;
+}
+.lead{
+    margin: 0;
+}
+.hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid gold;
+}

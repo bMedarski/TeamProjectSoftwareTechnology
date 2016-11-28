@@ -14,10 +14,7 @@
     "hbs": "~4.0.1",
     "mongoose": "^4.6.6",
     "morgan": "~1.7.0",
-<<<<<<< HEAD
     "multer": "^1.2.0",
-=======
->>>>>>> 1854d2101c31f56e9340c4eacf35f632755597ab
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"

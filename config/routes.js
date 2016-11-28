@@ -16,6 +16,9 @@ module.exports = (app) => {
     app.get('/user/login', userController.loginGet);
     app.post('/user/login', userController.loginPost);
 
+    app.get('/user/details', userController.detailsGet);
+    app.post('/user/details', userController.detailsPost);
+
     app.get('/user/logout', userController.logout);
 
     app.get('/article/create', articleController.createGet);
@@ -27,8 +30,9 @@ module.exports = (app) => {
     app.post('/article/edit/:id', articleController.editPost);
 
     app.get('/article/delete/:id', articleController.deleteGet);
-
     app.post('/article/delete/:id', articleController.deletePost);
+
+    app.get('/home/article', articleController.searchArticleGet);
 
     app.use((req, res, next) => {
         if (req.isAuthenticated()){

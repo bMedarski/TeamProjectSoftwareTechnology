@@ -6840,7 +6840,7 @@ table .danger,
 .table .danger,
 table .info,
 .table .info {
-  color: #fff;
+  color: gold;
 }
 table .success > th > a,
 .table .success > th > a,
@@ -6866,7 +6866,7 @@ table .danger > a,
 .table .danger > a,
 table .info > a,
 .table .info > a {
-  color: #fff;
+  color: gold;
 }
 table > thead > tr > th,
 .table > thead > tr > th,
