@@ -3,7 +3,10 @@ const User = mongoose.model('User');
 const Category = mongoose.model('Category');
 const Tag = mongoose.model('Tag');
 const Article = mongoose.model('Article');
+<<<<<<< HEAD
 const moment = require('moment');
+=======
+>>>>>>> ce78cc7fc48b9c5d1805d622b5ead55e9f9984ec
 
 module.exports = {
     /*index: (req, res) => {
@@ -14,6 +17,7 @@ module.exports = {
 
     index: (req, res) => {
 
+<<<<<<< HEAD
         Article.find({}).sort({date: -1}).limit(3).populate('author tags').then(articles => {
         date = [];
             for(let i=0;i<articles.length; i++){
@@ -31,6 +35,14 @@ module.exports = {
 
 
                 res.render('home/index', {articles: articles,categories: categories, moment:moment});
+=======
+
+        Article.find({}).limit(3).populate('author tags').then(articles => {
+
+                let dateString = articles.date;
+                Category.find({}).then(categories => {
+                res.render('home/index', {articles: articles,categories: categories});
+>>>>>>> ce78cc7fc48b9c5d1805d622b5ead55e9f9984ec
             })
         })
     },
