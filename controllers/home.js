@@ -38,6 +38,8 @@ module.exports = {
                 res.render('home/index', {articles: articles,categories: categories});
             })
         })
+                });
+        });
     },
 
     listCategoryArticles: (req, res) => {
