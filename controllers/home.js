@@ -24,20 +24,9 @@ module.exports = {
                 //date[i]=moment(date[i]);
                 //articles[i].created=date[i].substring(4,15);
                 articles[i].created=moment(articles[i].created).format("DD-MMM-YYYY");
-
             }
                 Category.find({}).then(categories => {
-
-
                 res.render('home/index', {articles: articles,categories: categories, moment:moment});
-
-        Article.find({}).limit(3).populate('author tags').then(articles => {
-
-                let dateString = articles.date;
-                Category.find({}).then(categories => {
-                res.render('home/index', {articles: articles,categories: categories});
-            })
-        })
                 });
         });
     },
