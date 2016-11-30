@@ -3,6 +3,7 @@ const User = mongoose.model('User');
 const Category = mongoose.model('Category');
 const Tag = mongoose.model('Tag');
 const Article = mongoose.model('Article');
+const Picture = mongoose.model('Picture');
 const moment = require('moment');
 
 module.exports = {
@@ -46,6 +47,26 @@ module.exports = {
                     }
 
                     res.render('home/article', {articles: category.articles})
+                });
+            });
+        });
+    },
+
+    listCategoryPictures: (req, res) => {
+        let id = req.params.id;
+
+        Category.findById(id).populate('pictures').then(category => {
+            User.populate(category.pictures,{path: 'author'}, (err) =>{
+                if (err) {
+                    console.log(err.message);
+                }
+
+                Tag.populate(category.pictures, {path: 'tags'}, (err) =>{
+                    if (err) {
+                        console.log(err.message);
+                    }
+
+                    res.render('home/picture', {pictures: category.pictures})
                 });
             });
         });

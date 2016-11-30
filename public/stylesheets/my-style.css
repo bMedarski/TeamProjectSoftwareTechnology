@@ -250,12 +250,12 @@ a {
     text-shadow: 2px 2px black;
 }
 #select:hover{
-    color: gold
+    color: gold;
     text-shadow: 2px 2px black;
     border: 1px solid darkgoldenrod;
 }
 .option:hover{
-    color: gold
+    color: gold;
     text-shadow: 2px 2px black;
     border: 1px solid darkgoldenrod;
 }
