@@ -1,5 +1,6 @@
 const express = require('express');
 const config = require('./config/config');
+const multer = require('multer');
 const app = express();
 
 let env = 'development';

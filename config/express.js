@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const moment = require('moment');
+const multipart = require('multer');
 
 module.exports = (app, config) => {
     // View engine setup.

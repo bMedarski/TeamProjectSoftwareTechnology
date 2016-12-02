@@ -1,14 +1,28 @@
 const userController = require('./../controllers/user');
 const articleController = require('./../controllers/article');
+const pictureController = require('./../controllers/picture');
 const homeController = require('./../controllers/home');
 const adminController = require('./../controllers/admin/admin');
 const tagController = require('./../controllers/tag');
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null,Date.now()+file.originalname);
+    }
+});
 
 module.exports = (app) => {
+    var upload = multer({storage:storage});
+
     app.get('/', homeController.index);
     app.get('/category/:id', homeController.listCategoryArticles);
+    app.get('/category/:id', homeController.listCategoryPictures);
 
     app.get('/tag/:name', tagController.listArticlesByTag);
+    app.get('/tag/:name', tagController.listPicturesByTag);
 
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
@@ -21,8 +35,11 @@ module.exports = (app) => {
 
     app.get('/user/logout', userController.logout);
 
+    app.get('/picture/create', pictureController.createGet);
+    app.post('/picture/create', pictureController.createPost);
+
     app.get('/article/create', articleController.createGet);
-    app.post('/article/create', articleController.createPost);
+    app.post('/article/create', upload.single('myFile'),articleController.createPost);
 
     app.get('/article/details/:id', articleController.details);
 

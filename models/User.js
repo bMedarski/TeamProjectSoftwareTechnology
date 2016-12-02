@@ -8,6 +8,7 @@ let userSchema = mongoose.Schema(
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
         articles: [{type: mongoose.Schema.Types.ObjectId, ref:'Article'}],
+        pictures: [{type: mongoose.Schema.Types.ObjectId, ref:'Picture'}],
         roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],
         salt: {type: String, required: true}
     }

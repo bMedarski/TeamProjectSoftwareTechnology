@@ -250,12 +250,12 @@ a {
     text-shadow: 2px 2px black;
 }
 #select:hover{
-    color: gold
+    color: gold;
     text-shadow: 2px 2px black;
     border: 1px solid darkgoldenrod;
 }
 .option:hover{
-    color: gold
+    color: gold;
     text-shadow: 2px 2px black;
     border: 1px solid darkgoldenrod;
 }
@@ -277,7 +277,6 @@ small .author{
 .btn-xs, .btn-group-xs > .btn{
     padding: 3px 7px;
 }
-<<<<<<< HEAD
 table .info,
 .table .info {
     color: red;
@@ -300,6 +299,21 @@ table .info,
     border: 0;
     border-top: 1px solid gold;
 }
-=======
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    width: 280px;
+    margin-left: 15px;
 
->>>>>>> ce78cc7fc48b9c5d1805d622b5ead55e9f9984ec
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
