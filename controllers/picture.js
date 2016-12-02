@@ -23,7 +23,7 @@ module.exports = {
     },
 
     createPost: (req, res) => {
-        if(!req.isAuthenticated()) {
+        if (!req.isAuthenticated()) {
             let returnUrl = '/picture/create';
             req.session.returnUrl = returnUrl;
 
@@ -34,10 +34,10 @@ module.exports = {
         let pictureArgs = req.body;
 
         let errorMsg = '';
-        if (!pictureArgs.title){
+        if (!pictureArgs.title) {
             errorMsg = 'Invalid title!';
-        } else if (!pictureArgs.content){
-            errorMsg = 'Invalid content!';
+        } else if (!pictureArgs.showPic) {
+            errorMsg = 'Please upload an image!';
         }
 
         if (errorMsg) {
@@ -50,13 +50,17 @@ module.exports = {
         Picture.create(pictureArgs).then(picture => {
             // Get the tags from the input, split it by space or semicolon,
             // then remove empty entries.
-            let tagNames = pictureArgs.tagNames.split(/\s+|,/).filter(tag => {return tag});
+            let tagNames = pictureArgs.tagNames.split(/\s+|,/).filter(tag => {
+                return tag
+            });
             initializeTagsPics(tagNames, picture.id);
 
             picture.prepareInsert();
             res.redirect('/');
         });
+
     },
+
 
     details: (req, res) => {
         let id = req.params.id;
@@ -118,8 +122,8 @@ module.exports = {
         let errorMsg = '';
         if (!pictureArgs.title){
             errorMsg = 'picture title cannot be empty!';
-        } else if (!pictureArgs.content) {
-            errorMsg = 'picture content cannot be empty!'
+        } else if (!pictureArgs.showPic) {
+            errorMsg = 'Please upload a picture!'
         }
 
         if(errorMsg) {
@@ -133,7 +137,7 @@ module.exports = {
 
                 picture.category = pictureArgs.category;
                 picture.title = pictureArgs.title;
-                picture.content = pictureArgs.content;
+                picture.showPic = pictureArgs.showPic;
 
                 let newTagNames = pictureArgs.tags.split(/\s+|,/).filter(tag => {return tag});
 
