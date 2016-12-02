@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 let pictureSchema = mongoose.Schema({
     title: {type: String, required: true},
-    content: {type: String, required: true},
+    showPic: { data: Buffer, type: String, required: true},
     author: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
     category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
     tags: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Tag'}],
