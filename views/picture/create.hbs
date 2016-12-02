@@ -1,6 +1,6 @@
-<div class="container body-content span=8 offset=2 body-main">
+<div class="container body-img span=8 offset=2 body-main">
     <div class="well">
-        <form class="form-horizontal" method="POST" action="/picture/create" enctype="multipart/form-data ">
+        <form class="form-horizontal" method="POST" action="/picture/create">
             <fieldset>
                 <legend>New Picture</legend>
 
@@ -11,22 +11,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="pictureContent">Content</label>
+                    <label class="col-sm-4 control-label" for="pictureShowPic">Upload Image</label>
                     <div class="col-sm-6">
-                        <textarea class="form-control" id="pictureContent" rows="5" name="content" required></textarea>
+
+
+
+                        <form class="form-control" id="pictureShowPic" rows="5" name="showPic" required>><!-- action="/" method="POST" enctype="multipart/form-data"-->
+                            <p><input type="file" name="showPic" /></p>'
+
+                        </form>
+
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="picture">Picture</label>
-                    <div class="col-sm-6 fileUpload btn btn-default">
-                        <span>Upload</span>
-                        <input type="file" name="avatar" id="picture" class="upload" value="Upload">
-                    </div>
-                </div>
-                <!--
-                <form action="/" method="POST" enctype="multipart/form-data ">
-                    <input type="file" name="avatar">
-                </form>-->
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="category">Category</label>
