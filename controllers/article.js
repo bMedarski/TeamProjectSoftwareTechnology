@@ -236,13 +236,18 @@ module.exports = {
 
     searchArticleGet: (req,res) => {
 
-        let searchArgs = req.body;
-        Article.find({}).then(article => {
-
+        let searchArgs = req.body.search;
+        //console.log(req.body.search);
+        //console.log(searchArgs.search);
+            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).then(article => {
+                Tag.populate(article, {path: 'tags'}, (err) =>{
+                    if (err) {
+                        console.log(err.message);
+                    }
             res.render('home/article', {articles:article});
-
+                });
         });
 
-        res.render('home/article');
+        //res.redirect('home/index');
     }
 };

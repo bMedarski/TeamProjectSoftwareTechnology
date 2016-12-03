@@ -1,3 +1,4 @@
+<!--
 <div class="container body-content body-main">
     <div class="row">
         <div class="col-md-12">
@@ -30,5 +31,32 @@
                 </footer>
             </article>
         </div>
+    </div>
+</div>-->
+<div class="container body-content">
+    <div class="row">
+            <div class="col-md-12">
+                <article class="body-main body-main main-article">
+                    <h2 class="mainColor " style="margin-bottom: 0">{{ article.title }}</h2>
+                    <p class="lead" style="margin-bottom: 8px">
+                        by <a href="#" class="mainColor authorArt" >{{article.author.fullName}}</a>
+                    </p>
+                    <p class="clearfix"><img class="img-responsive" src="/uploads/{{article.img.name}}" alt="">  {{article.content}}</p>
+                    <hr class="hr"/>
+                    <div class="pull-left" style="margin-bottom: 10px">
+                        {{#each article.tags }}
+                            <a class="btn btn-default btn-xs" style="padding:5px 7px;"
+                               href="/tag/{{this.name}}">{{ this.name }}</a>
+                        {{/each}}
+                    </div>
+                    <div class="pull-right">
+                        {{#if isUserAuthorized}}
+                            <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
+                            <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                        {{/if}}
+                        <a class="btn btn-default" style="padding: 10px" href="/">Back &raquo;</a>
+                    </div>
+                </article>
+            </div>
     </div>
 </div>

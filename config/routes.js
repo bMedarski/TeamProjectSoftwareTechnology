@@ -48,7 +48,7 @@ module.exports = (app) => {
 
     app.get('/article/delete/:id', articleController.deleteGet);
     
-    app.get('/home/article', articleController.searchArticleGet);
+    app.post('/', articleController.searchArticleGet);
 
     app.post('/article/delete/:id', articleController.deletePost);
 

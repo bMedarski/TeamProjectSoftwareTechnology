@@ -20,10 +20,12 @@
                     <a href="/article/create" class="btn btn-default">New Article&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 {{/if}}
                 <hr class="hr"/>
+                <form class="form-horizontal" method="POST" action="/">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
                     </div>
-                    <button type="submit" class="btn btn-default"><a href="/home/article">Search</a></button>
+                    <button type="submit" class="btn btn-default">Search</button>
+                    </form>
                <!-- <h4>Side Widget Well</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>-->
             </div>
