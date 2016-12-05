@@ -31,7 +31,7 @@ module.exports = (app) => {
     app.post('/user/login', userController.loginPost);
 
     app.get('/user/details', userController.detailsGet);
-    app.post('/user/details', userController.detailsPost);
+    app.post('/user/details',upload.single('avatar'), userController.detailsPost);
 
     app.get('/user/logout', userController.logout);
 

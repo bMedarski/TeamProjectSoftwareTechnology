@@ -44,6 +44,9 @@
                                     </ul>
                                 </li>
                             {{/if}}
+                {{#if user.img.name}}
+                            <li class="liIMage"><img src="/uploads/{{user.img.name}}" class="avatar thumb" height="45" width="45"/></li>
+                {{/if}}
                             <li><a href="/user/details">{{user.fullName}}</a></li>
                             <li><a href="/user/logout">Logout</a></li>
                         </ul>

@@ -1,6 +1,6 @@
 <div class="container body-content span=8 offset=2 body-main">
     <div class="well">
-        <form class="form-horizontal" method="post" action="/user/details">
+        <form class="form-horizontal" method="post" action="/user/details" enctype="multipart/form-data">
             <fieldset>
                 <legend>User Information</legend>
                 <div class="form-group">
@@ -27,6 +27,7 @@
                         <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required name="repeatedPassword">
                     </div>
                 </div>
+                <input name="avatar" type="file" class="form-control">
                 <!--<div class="form-group">
                     <label class="col-sm-4 control-label" for="category">Articles</label>
                     <div class="col-sm-6">

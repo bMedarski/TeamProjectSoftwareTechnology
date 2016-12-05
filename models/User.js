@@ -7,6 +7,7 @@ let userSchema = mongoose.Schema(
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
+        img:{data:Buffer,contentType:String,path:String,name:String,required: false},
         articles: [{type: mongoose.Schema.Types.ObjectId, ref:'Article'}],
         pictures: [{type: mongoose.Schema.Types.ObjectId, ref:'Picture'}],
         roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],

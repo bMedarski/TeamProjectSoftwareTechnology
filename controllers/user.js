@@ -4,7 +4,7 @@ const Article = require('mongoose').model('Article');
 const Category = require('mongoose').model('Category');
 const Tag = require('mongoose').model('Tag');
 const encryption = require('./../utilities/encryption');
-
+var fs = require("fs");
 module.exports = {
     registerGet: (req, res) => {
         res.render('user/register');
@@ -95,27 +95,10 @@ module.exports = {
 
     detailsGet: (req, res) => {
         let user = req.user;
-        //console.log(user);
         let userId = user.id;
-        //console.log(userId);
         Article.find({author:userId}).populate('author').then(article => {
-            //console.log(article);
             res.render('user/details', {user:user,articles:article});
         });
-        /*User.findById(user.id).then(user =>{
-                Article.findOne({}).populate('title')
-                    .then(article => {
-            console.log(article);
-
-            res.render('user/details', {user:user,articles:article});
-        });
-        });*/
-
-        //res.render('user/details', {user:user});
-        //console.log(user.articles);
-        //Article.findById({id}).then(article => {res.render('user/details', {user:user});
-        //});
-        //console.log(user.articles);
     },
     detailsPost: (req, res) => {
         let detailsArgs = req.body;
@@ -137,11 +120,22 @@ module.exports = {
                 /*user.setPassword(detailsArgs.password, function() {
                     user.save();
                 });*/
-                let salt = encryption.generateSalt();
-                let passwordHash = encryption.hashPassword(detailsArgs.password, salt);
-                user.passwordHash=passwordHash;
-                user.salt=salt;
-                user.fullName = detailsArgs.fullName;
+
+                if(detailsArgs.password){
+                    let salt = encryption.generateSalt();
+                    let passwordHash = encryption.hashPassword(detailsArgs.password, salt);
+                    user.passwordHash=passwordHash;
+                    user.salt=salt;
+                }
+                if(detailsArgs.fullName){
+                    user.fullName = detailsArgs.fullName;
+                }
+                if(req.file){
+                    user.img.data=fs.readFileSync(req.file.path);
+                    user.img.path=req.file.path;
+                    user.img.contentType='image/png';
+                    user.img.name=req.file.filename;
+                }
                 user.save();
                 res.redirect('/');
             }

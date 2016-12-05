@@ -40,7 +40,12 @@
                     by <a href="#" class="mainColor authorArt">{{ this.author.fullName }}</a>
                 </p>
                 <p><span class=""></span>{{this.created}}</p>
-                <p class="text clearfix"><img class="img-responsive" src="/uploads/{{this.img.name}}" alt=""> {{ this.content }}</p>
+                <p class="text clearfix">
+                     {{#if this.img.name}}
+                    <img class="img-responsive thumbnail" src="/uploads/{{this.img.name}}" alt="">
+                     {{/if}}
+                    {{ this.content }}
+                </p>
                 <!--<img src="/uploads/{{user.img.name}}" class="img-responsive" height="50" width="50"/>-->
                 <hr class="hr"/>
                 <div class="pull-left" style="margin-bottom: 10px">

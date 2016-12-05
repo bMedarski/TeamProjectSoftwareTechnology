@@ -8,7 +8,12 @@
                     <p class="lead" style="margin-bottom: 8px">
                         by <a href="#" class="mainColor authorArt" >{{ this.author.fullName }}</a>
                     </p>
-                    <p class="text clearfix"><img class="img-responsive" src="/uploads/{{this.img.name}}" alt="">  {{ this.content }}</p>
+                    <p class="text clearfix">
+                        {{#if this.img.name}}
+                            <img class="img-responsive thumbnail" src="/uploads/{{this.img.name}}" alt="">
+                        {{/if}}
+                        {{ this.content }}
+                    </p>
                     <hr class="hr"/>
                     <div class="pull-left" style="margin-bottom: 10px">
                         {{#each this.tags }}

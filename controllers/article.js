@@ -3,17 +3,6 @@ const Category = require('mongoose').model('Category');
 const Tag = require('mongoose').model('Tag');
 const initializeTags = require('./../models/Tag').initializeTags;
 var fs = require("fs");
-/*const multer = require('multer');
-var fs = require("fs");
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null,Date.now()+file.originalname);
-    }
-});
-var upload = multer({storage:storage});*/
 module.exports = {
     createGet: (req, res) => {
         if (!req.isAuthenticated()){
@@ -49,25 +38,21 @@ module.exports = {
             return;
         }
         var articleObject = new Article();
-        //console.log(articleArgs);
-        //console.log(req.file);
+        console.log(req.file);
+        if(req.file){
+            articleObject.img.data = fs.readFileSync(req.file.path);
+            articleObject.img.path=req.file.path;
+            articleObject.img.contentType='image/png';
+            articleObject.img.name=req.file.filename;
+        }
         articleObject.author = req.user.id;
         articleObject.content = req.body.content;
-        articleObject.img.data = fs.readFileSync(req.file.path);
         articleObject.title = req.body.title;
         articleObject.category = req.body.category;
-       // console.log(req.file.path);
-        articleObject.img.path=req.file.path;
-        articleObject.img.contentType='image/png';
-        articleObject.img.name=req.file.filename;
-        //console.log(articleObject);
         articleObject.tags = [];
         Article.create(articleObject).then(article => {
-            // Get the tags from the input, split it by space or semicolon,
-            // then remove empty entries.
             let tagNames = articleArgs.tagNames.split(/\s+|,/).filter(tag => {return tag});
             initializeTags(tagNames, article.id);
-
             article.prepareInsert();
             res.redirect('/');
         });
