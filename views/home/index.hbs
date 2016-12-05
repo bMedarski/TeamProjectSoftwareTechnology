@@ -7,7 +7,7 @@
                     <div class="col-lg-12">
                         <ul class="list-unstyled">
                             {{#each categories}}
-                                <li><a href="/category/{{ this.id }}">{{ this.name }} ({{ this.articles.length }})</a>
+                                <li><a href="/category/{{ this.id }}">{{ this.name }} ({{ this.pictures.length }})</a>
                                 </li>
                             {{/each}}
                         </ul>
@@ -17,7 +17,7 @@
             </div>
             <div class="well">
                 {{#if user}}
-                    <a href="/article/create" class="btn btn-default">New Article&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <a href="/picture/create" class="btn btn-default">New picture&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 {{/if}}
                 <hr class="hr"/>
                 <form class="form-horizontal" method="POST" action="/">
@@ -25,38 +25,34 @@
                         <input type="text" class="form-control" placeholder="Search" name="search">
                     </div>
                     <button type="submit" class="btn btn-default">Search</button>
-                    </form>
-               <!-- <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>-->
+                </form>
+                <!-- <h4>Side Widget Well</h4>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>-->
             </div>
         </div>
-        {{#each articles}}
-        <div class="col-md-offset-3">
-            <div class="body-main main-article">
-                <h2>
-                    <a href="/article/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
-                </h2>
-                <p class="lead">
-                    by <a href="#" class="mainColor authorArt">{{ this.author.fullName }}</a>
-                </p>
-                <p><span class=""></span>{{this.created}}</p>
-                <p class="text clearfix">
-                     {{#if this.img.name}}
-                    <img class="img-responsive thumbnail" src="/uploads/{{this.img.name}}" alt="">
-                     {{/if}}
-                    {{ this.content }}
-                </p>
-                <!--<img src="/uploads/{{user.img.name}}" class="img-responsive" height="50" width="50"/>-->
-                <hr class="hr"/>
-                <div class="pull-left" style="margin-bottom: 10px">
-                    {{# each this.tags}}
-                        <a class="btn btn-default btn-xs" style="padding:5px 7px;" href="/tag/{{this.name}}">{{ this.name }}</a>
-                    {{/each}}
+        {{#each pictures}}
+            <div class="col-md-offset-3">
+                <div class="body-main main-picture">
+                    <h2>
+                        <a href="/picture/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
+                    </h2>
+                    <p class="lead">
+                        by <a href="#" class="mainColor authorArt">{{ this.author.fullName }}</a>
+                    </p>
+                    <p><span class=""></span>{{this.created}}</p>
+                    <p class="text clearfix"><img class="img-responsive" alt=""> {{ this.showPic }}</p>
+                    <!--<img src="/uploads/{{user.img.name}}" class="img-responsive" height="50" width="50"/>-->
+                    <hr class="hr"/>
+                    <div class="pull-left" style="margin-bottom: 10px">
+                        {{# each this.tags}}
+                            <a class="btn btn-default btn-xs" style="padding:5px 7px;" href="/tag/{{this.name}}">{{ this.name }}</a>
+                        {{/each}}
+                    </div>
+                    <a class="btn btn-default pull-right" href="/picture/details/{{this.id}}">Read More <span class=""></span></a>
+
+
                 </div>
-                <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <span class=""></span></a>
             </div>
-        </div>
-        {{/ each}}
+        {{/each}}
     </div>
 </div>
-
