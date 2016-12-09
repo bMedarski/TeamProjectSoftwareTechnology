@@ -44,6 +44,7 @@ module.exports = (app) => {
     app.post('/article/create', upload.single('myFile'),articleController.createPost);
 
     app.get('/article/details/:id', articleController.details);
+    app.get('/picture/details/:id', pictureController.details);
 
     app.get('/article/edit/:id', articleController.editGet);
     app.post('/article/edit/:id', articleController.editPost);
