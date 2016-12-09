@@ -1,5 +1,5 @@
 #body {
-    background: url("../images/Dolomites2.JPG") no-repeat center center fixed;
+    background: url("../images/Cathedral.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -21,7 +21,7 @@
     transition-duration: 0.5s;
 }
 .navbar-default .navbar-nav > li > a:hover {
-    color: darkgoldenrod;
+    color: gold;
 }
 .navbar-default .navbar-brand {
     color: gold;
@@ -31,7 +31,7 @@
     transition-duration: 0.5s;
 }
 .navbar-default .navbar-brand:hover {
-    color: darkgoldenrod;
+    color: gold;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: gold;
@@ -47,19 +47,19 @@
     transition-duration: 0.5s;
 }
 .btn-default:hover{
-    color: darkgoldenrod;
+    color: gold;
     background: rgba(100,100,100,0.5);
-    border-color: darkgoldenrod;
+    border-color: gold;
     text-shadow: 1px 1px black;
 }
 .btn-default:active{
-    color: darkgoldenrod;
+    color: gold;
     background: rgba(100,100,100,0.5);
-    border-color: darkgoldenrod;
+    border-color: gold;
     text-shadow: 1px 1px black;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: darkgoldenrod;
+    color: gold;
     background: rgba(100,100,100,0.5);
     text-shadow: 2px 2px black;
 }
@@ -79,7 +79,7 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: darkgoldenrod;
+    color: gold;
     white-space: nowrap;
     background: rgba(100,100,100,0.8);
     text-shadow: 2px 2px black;
@@ -100,7 +100,7 @@
     background-color: rgba(100,100,100,0.8);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
     border-radius: 4px;
     text-shadow: 2px 2px black;
 }
@@ -108,10 +108,10 @@
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
-    background-color: darkgoldenrod;
+    background-color: gold;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: darkgoldenrod;
+    border-color: gold;
 }
 .form-control{
     background-color: rgba(100,100,100,0.8);
@@ -121,9 +121,9 @@
 }
 .form-control:focus{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
     color: gold;
-    box-shadow:1px 1px darkgoldenrod;
+    box-shadow:1px 1px gold;
 }
 legend{
     text-align: center;
@@ -137,7 +137,7 @@ legend{
     background-color: rgba(100,100,100,0.95);
     margin-top: 0;
     border-radius: 10px;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
     -webkit-transition-duration: 0.9s; /* Safari */
     transition-duration: 0.9s;
     padding:30px;
@@ -163,7 +163,7 @@ legend{
     border-bottom: 1px solid gold;
 }
 .thumbnail {
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
     background-color: rgba(100,100,100,0);
 }
 .thumb{
@@ -175,7 +175,7 @@ legend{
     text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.9);
     border-radius: 10px;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
     -webkit-transition-duration: 0.9s; /* Safari */
     transition-duration: 0.9s;
     padding: 0 22px;
@@ -227,18 +227,18 @@ h2{
     float: right;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    darkgoldenrod;
+    color:    gold;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    darkgoldenrod;
+    color:    gold;
     opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    darkgoldenrod;
+    color:    gold;
     opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:    darkgoldenrod;
+    color:    gold;
 }
 a {
     color: gold;
@@ -252,12 +252,12 @@ a {
 #select:hover{
     color: gold;
     text-shadow: 2px 2px black;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
 }
 .option:hover{
     color: gold;
     text-shadow: 2px 2px black;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid gold;
 }
 .option {
     background: rgba(100,100,100,0.9);
@@ -266,7 +266,7 @@ a {
 }
 small .author{
     text-shadow: 2px 2px black;
-    color:    darkgoldenrod;
+    color:    gold;
 }
 .categories{
     width: 23%;
@@ -330,4 +330,108 @@ table .info,
     display: block;
     height: 55px;
     line-height: 55px;
+}
+.modal-footer{
+    color: gold;
+}
+.hovereffect {
+    width:100%;
+    height:100%;
+    float:left;
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+    cursor:default;
+}
+
+.hovereffect .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    overflow:hidden;
+    top:0;
+    left:0;
+    opacity:0;
+    background-color:rgba(0,0,0,0.5);
+    -webkit-transition:all .4s ease-in-out;
+    transition:all .4s ease-in-out
+}
+
+.hovereffect img {
+    display:block;
+    position:relative;
+    -webkit-transition:all .4s linear;
+    transition:all .4s linear;
+}
+
+.hovereffect h2 {
+    text-transform:uppercase;
+    color:#fff;
+    text-align:center;
+    position:relative;
+    font-size:17px;
+    background:rgba(0,0,0,0.6);
+    -webkit-transform:translatey(-100px);
+    -ms-transform:translatey(-100px);
+    transform:translatey(-100px);
+    -webkit-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out;
+    padding:10px;
+}
+
+.hovereffect a.info {
+    text-decoration:none;
+    display:inline-block;
+    text-transform:uppercase;
+    color:#fff;
+    border:1px solid #fff;
+    background-color:transparent;
+    opacity:0;
+    filter:alpha(opacity=0);
+    -webkit-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out;
+    margin:50px 0 0;
+    padding:7px 14px;
+}
+
+.hovereffect a.info:hover {
+    box-shadow:0 0 5px #fff;
+}
+
+.hovereffect:hover img {
+    -ms-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+.hovereffect:hover h2,.hovereffect:hover a.info {
+    opacity:1;
+    filter:alpha(opacity=100);
+    -ms-transform:translatey(0);
+    -webkit-transform:translatey(0);
+    transform:translatey(0);
+}
+
+.hovereffect:hover a.info {
+    -webkit-transition-delay:.2s;
+    transition-delay:.2s;
+}
+.galery-image{
+    width: auto;
+    height: 250px;
+}
+.body-img{
+    width: 30%;
+    height: 30%;
+    color: gold;
+    background-color: rgba(100,100,100,0.6);
+    border-radius: 10px;
+    border: 1px solid gold;
+    padding:10px;
+    margin: 10px;
 }

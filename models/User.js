@@ -10,6 +10,7 @@ let userSchema = mongoose.Schema(
         img:{data:Buffer,contentType:String,path:String,name:String,required: false},
         articles: [{type: mongoose.Schema.Types.ObjectId, ref:'Article'}],
         pictures: [{type: mongoose.Schema.Types.ObjectId, ref:'Picture'}],
+        comments: [{type: mongoose.Schema.Types.ObjectId, ref:'Comment'}],
         roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],
         salt: {type: String, required: true}
     }

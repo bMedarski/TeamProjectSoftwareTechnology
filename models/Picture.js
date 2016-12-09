@@ -1,17 +1,12 @@
-/**
- * Created by Cvety on 30-Nov-16.
- */
-/**
- * Created by Cvety on 22-Nov-16.
- */
+
 const mongoose = require('mongoose');
 
 let pictureSchema = mongoose.Schema({
     title: {type: String, required: true},
-    showPic: { data: Buffer, type: String, required: true},
+    img:{data:Buffer, contentType:String, path:String, required: false, name:String},
     author: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
-    category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
-    tags: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Tag'}],
+    //category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
+    tags: [{type: mongoose.Schema.Types.ObjectId, required: false, ref: 'Tag'}],
     date: {type: Date, default: Date.now()}
 });
 

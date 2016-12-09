@@ -18,6 +18,8 @@ module.exports = (app) => {
     var upload = multer({storage:storage});
 
     app.get('/', homeController.index);
+    app.get('/home/picture', pictureController.getPictures);
+
     app.get('/category/:id', homeController.listCategoryArticles);
     app.get('/category/:id', homeController.listCategoryPictures);
 
@@ -36,7 +38,7 @@ module.exports = (app) => {
     app.get('/user/logout', userController.logout);
 
     app.get('/picture/create', pictureController.createGet);
-    app.post('/picture/create', pictureController.createPost);
+    app.post('/picture/create', upload.single('showPic'), pictureController.createPost);
 
     app.get('/article/create', articleController.createGet);
     app.post('/article/create', upload.single('myFile'),articleController.createPost);

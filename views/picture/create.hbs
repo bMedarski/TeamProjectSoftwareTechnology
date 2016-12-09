@@ -1,6 +1,6 @@
-<div class="container body-img span=8 offset=2 body-main">
+<div class="container body-content span=8 offset=2 body-main">
     <div class="well">
-        <form class="form-horizontal" method="POST" action="/picture/create">
+        <form class="form-horizontal" method="POST" action="/picture/create" enctype="multipart/form-data">
             <fieldset>
                 <legend>New Picture</legend>
 
@@ -12,13 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="pictureShowPic">Upload Image</label>
-                    <div class="col-sm-6">
-                        <form class="form-control" id="pictureShowPic" rows="5" name="showPic" required>><!-- action="/" method="POST" enctype="multipart/form-data"-->
-                            <p><input type="file" name="showPic" /></p>'
-                        </form>
+                    <div class="col-sm-4 fileUpload btn btn-default">
+                        <span>Upload Image</span>
+                            <input type="file" class="form-control upload" id="pictureShowPic" name="showPic" />
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="category">Category</label>
                     <div class="col-sm-6">

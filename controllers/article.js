@@ -17,7 +17,6 @@ module.exports = {
             res.render('article/create', {categories: categories});
         });
     },
-
     createPost: (req, res) => {
         if(!req.isAuthenticated()) {
             let returnUrl = '/article/create';
@@ -38,7 +37,7 @@ module.exports = {
             return;
         }
         var articleObject = new Article();
-        console.log(req.file);
+        //console.log(req.file);
         if(req.file){
             articleObject.img.data = fs.readFileSync(req.file.path);
             articleObject.img.path=req.file.path;
@@ -224,7 +223,7 @@ module.exports = {
         let searchArgs = req.body.search;
         //console.log(req.body.search);
         //console.log(searchArgs.search);
-            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).then(article => {
+            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).populate('author tags').then(article => {
                 Tag.populate(article, {path: 'tags'}, (err) =>{
                     if (err) {
                         console.log(err.message);

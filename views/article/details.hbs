@@ -42,10 +42,10 @@
                         by <a href="#" class="mainColor authorArt" >{{article.author.fullName}}</a>
                     </p>
                     <p class="clearfix">
-                        {{#if this.img.name}}
-                            <img class="img-responsive thumbnail" src="/uploads/{{this.img.name}}" alt="">
+                        {{#if article.img.name}}
+                            <img class="img-responsive thumbnail" src="/uploads/{{article.img.name}}" alt="">
                         {{/if}}
-                        {{ this.content }}
+                        {{ article.content }}
                     </p>
                     <hr class="hr"/>
                     <div class="pull-left" style="margin-bottom: 10px">

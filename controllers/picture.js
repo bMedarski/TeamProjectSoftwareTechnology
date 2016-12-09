@@ -1,13 +1,25 @@
-/**
- * Created by Cvety on 30-Nov-16.
- */
 const Picture = require('mongoose').model('Picture');
 const Category = require('mongoose').model('Category');
+const Tag = require('mongoose').model('Tag');
 const initializeTagsPics = require('mongoose').model('Tag').initializeTagsPics;
-
-
-
+var fs = require("fs");
 module.exports = {
+
+    getPictures: (req, res) => {
+        Picture.find({}).sort({date: -1}).populate('author tags').then(pictures => {
+            /*date = [];
+            for(let i=0;i<pictures.length; i++){
+                date.push(pictures[i].date);
+            }
+            for(let i=0;i<pictures.length; i++){
+                pictures[i].created = moment(date[i]).format("H:mm, DD-MMM-YYYY");
+            }*/
+            Category.find({}).then(categories => {
+                res.render('home/picture', {pictures: pictures,categories: categories});
+            });
+        });
+    },
+
     createGet: (req, res) => {
         if (!req.isAuthenticated()){
             let returnUrl = '/picture/create';
@@ -34,29 +46,37 @@ module.exports = {
         let pictureArgs = req.body;
 
         let errorMsg = '';
-        if (!pictureArgs.title) {
+        /*if (!pictureArgs.title) {
             errorMsg = 'Invalid title!';
         } else if (!pictureArgs.showPic) {
             errorMsg = 'Please upload an image!';
-        }
+        }*/
 
         if (errorMsg) {
             res.render('picture/create', {error: errorMsg});
             return;
         }
 
-        pictureArgs.author = req.user.id;
-        pictureArgs.tags = [];
-        Picture.create(pictureArgs).then(picture => {
-            // Get the tags from the input, split it by space or semicolon,
+        var pictureObject = new Picture();
+        if(req.file){
+            pictureObject.img.data = fs.readFileSync(req.file.path);
+            pictureObject.img.path=req.file.path;
+            pictureObject.img.contentType='image/png';
+            pictureObject.img.name=req.file.filename;
+        }
+        pictureObject.title = req.body.title;
+        pictureObject.author = req.user.id;
+        pictureObject.tags = [];
+        Picture.create(pictureObject).then(picture => {
+            /*// Get the tags from the input, split it by space or semicolon,
             // then remove empty entries.
-            let tagNames = pictureArgs.tagNames.split(/\s+|,/).filter(tag => {
+            let tagNames = pictureObject.tagNames.split(/\s+|,/).filter(tag => {
                 return tag
             });
-            initializeTagsPics(tagNames, picture.id);
+            initializeTagsPics(tagNames, picture.id);*/
 
             picture.prepareInsert();
-            res.redirect('/');
+            res.redirect('/home/picture');
         });
 
     },

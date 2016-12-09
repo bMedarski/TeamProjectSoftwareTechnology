@@ -7,6 +7,7 @@ let articleSchema = mongoose.Schema({
     img:{data:Buffer, contentType:String, path:String, required: false, name:String},
     category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
     tags: [{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Tag'}],
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref:'Comment'}],
     date: {type: Date, default: Date.now()}
 });
 
