@@ -21,7 +21,7 @@ module.exports = (app) => {
     app.get('/home/picture', pictureController.getPictures);
 
     app.get('/category/:id', homeController.listCategoryArticles);
-    app.get('/category/:id', homeController.listCategoryPictures);
+    app.get('/category/picture/:id', homeController.listCategoryPictures);
 
     app.get('/tag/:name', tagController.listArticlesByTag);
     app.get('/tag/:name', tagController.listPicturesByTag);
@@ -51,6 +51,7 @@ module.exports = (app) => {
 
     app.get('/article/delete/:id', articleController.deleteGet);
     
+    app.post('/home/picture', pictureController.searchPictureGet);
     app.post('/', articleController.searchArticleGet);
 
     app.post('/article/delete/:id', articleController.deletePost);

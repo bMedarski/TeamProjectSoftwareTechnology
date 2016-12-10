@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{#each pictures}}
+                <div class="col-md-4 body-img">
+                    <div class="hovereffect">
+                        <img class="img-responsive galery-images" src="/uploads/{{this.img.name}}" alt="">
+                        <div class="overlay">
+                            <h2>{{this.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            {{/ each}}
+        </div>
+    </div>
+</div>

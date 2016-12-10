@@ -5,8 +5,8 @@ let pictureSchema = mongoose.Schema({
     title: {type: String, required: true},
     img:{data:Buffer, contentType:String, path:String, required: false, name:String},
     author: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
-    //category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
-    tags: [{type: mongoose.Schema.Types.ObjectId, required: false, ref: 'Tag'}],
+    category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
+    //tags: [{type: mongoose.Schema.Types.ObjectId, required: false, ref: 'Tag'}],
     date: {type: Date, default: Date.now()}
 });
 
@@ -27,7 +27,7 @@ pictureSchema.method({
             }
         });
 
-        let Tag = mongoose.model('Tag');
+        /*let Tag = mongoose.model('Tag');
         for (let tagId of this.tags){
             Tag.findById(tagId).then(tag => {
                 if (tag) {
@@ -35,7 +35,7 @@ pictureSchema.method({
                     tag.save();
                 }
             });
-        }
+        }*/
     },
 
     prepareDelete: function () {

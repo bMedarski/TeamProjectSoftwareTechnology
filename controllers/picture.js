@@ -4,9 +4,18 @@ const Tag = require('mongoose').model('Tag');
 const initializeTagsPics = require('mongoose').model('Tag').initializeTagsPics;
 var fs = require("fs");
 module.exports = {
+    searchPictureGet: (req, res) => {
+        let searchArgs = req.body.search;
+        //console.log(req.body.search);
+        //console.log(searchArgs.search);
+        Picture.find({ title: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).then(picture => {
+                res.render('home/picture', {pictures:picture});
+        });
 
+        //res.redirect('home/index');
+    },
     getPictures: (req, res) => {
-        Picture.find({}).sort({date: -1}).populate('author tags').then(pictures => {
+        Picture.find({}).sort({date: -1}).then(pictures => {
             /*date = [];
             for(let i=0;i<pictures.length; i++){
                 date.push(pictures[i].date);
@@ -64,9 +73,11 @@ module.exports = {
             pictureObject.img.contentType='image/png';
             pictureObject.img.name=req.file.filename;
         }
+        pictureObject.category = req.body.category;
+        //console.log(req.body.category);
         pictureObject.title = req.body.title;
         pictureObject.author = req.user.id;
-        pictureObject.tags = [];
+        //pictureObject.tags = [];
         Picture.create(pictureObject).then(picture => {
             /*// Get the tags from the input, split it by space or semicolon,
             // then remove empty entries.

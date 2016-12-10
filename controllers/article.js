@@ -223,7 +223,7 @@ module.exports = {
         let searchArgs = req.body.search;
         //console.log(req.body.search);
         //console.log(searchArgs.search);
-            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).populate('author tags').then(article => {
+            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).populate('author tags').then(article => {
                 Tag.populate(article, {path: 'tags'}, (err) =>{
                     if (err) {
                         console.log(err.message);

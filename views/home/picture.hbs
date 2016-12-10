@@ -7,12 +7,11 @@
                     <div class="col-lg-12">
                         <ul class="list-unstyled">
                             {{#each categories}}
-                                <li><a href="/category/{{ this.id }}">{{ this.name }} ({{ this.pictures.length }})</a>
+                                <li><a href="/category/picture/{{ this.id }}">{{ this.name }} ({{ this.pictures.length }})</a>
                                 </li>
                             {{/each}}
                         </ul>
                     </div>
-
                 </div>
             </div>
             <div class="well">
@@ -20,7 +19,7 @@
                     <a href="/picture/create" class="btn btn-default">New Picture&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                 {{/if}}
                 <hr class="hr"/>
-                <form class="form-horizontal" method="POST" action="/">
+                <form class="form-horizontal" method="POST" action="/home/picture">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search" name="search">
                     </div>

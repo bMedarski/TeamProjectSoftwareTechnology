@@ -60,17 +60,14 @@ module.exports = {
                 if (err) {
                     console.log(err.message);
                 }
-
                 Tag.populate(category.pictures, {path: 'tags'}, (err) =>{
                     if (err) {
                         console.log(err.message);
                     }
 
-                    res.render('home/picture', {pictures: category.pictures})
+                    res.render('home/picture-categories', {pictures: category.pictures})
                 });
             });
         });
     }
-
-
 };

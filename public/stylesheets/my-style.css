@@ -423,6 +423,10 @@ table .info,
 }
 .galery-image{
     width: auto;
+    height: 175px;
+}
+.galery-images{
+    width: auto;
     height: 250px;
 }
 .body-img{
