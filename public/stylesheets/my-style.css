@@ -134,7 +134,7 @@ legend{
 .body-main{
     color: gold;
     text-shadow: 2px 2px black;
-    background-color: rgba(100,100,100,0.95);
+    background-color: rgba(100,100,100,0.8);
     margin-top: 0;
     border-radius: 10px;
     border: 1px solid gold;
@@ -438,4 +438,25 @@ table .info,
     border: 1px solid gold;
     padding:10px;
     margin: 10px;
+}
+.comment{
+    color: gold;
+    text-shadow: 2px 2px black;
+    background-color: rgba(100,100,100,0.8);
+    border-radius: 10px;
+    border: 1px solid gold;
+    padding:10px;
+    padding-bottom: 25px;
+    margin-top: 10px;
+}
+#comments{
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: dimgray;
+    max-width: none;
+    width: 85%;
+    resize: none;
+    overflow: auto;
 }

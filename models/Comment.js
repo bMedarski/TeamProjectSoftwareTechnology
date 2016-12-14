@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let commentSchema = mongoose.Schema({
     content: {type: String, required: true},
     author: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
-    article: {type: mongoose.Schema.Types.ObjectId, ref:'Article'},
+    article: {type: mongoose.Schema.Types.ObjectId, required: true,ref:'Article'},
     date: {type: Date, default: Date.now()}
 });
 
@@ -13,6 +13,11 @@ commentSchema.method({
         User.findById(this.author).then(user => {
             user.comments.push(this.id);
             user.save();
+        });
+        let Article = mongoose.model('Article');
+        Article.findById(this.article).then(article => {
+            article.comments.push(this.id);
+            article.save();
         });
     },
 

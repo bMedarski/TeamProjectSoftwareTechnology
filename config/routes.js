@@ -4,6 +4,7 @@ const pictureController = require('./../controllers/picture');
 const homeController = require('./../controllers/home');
 const adminController = require('./../controllers/admin/admin');
 const tagController = require('./../controllers/tag');
+const commentController = require('./../controllers/comment');
 const multer = require('multer');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -45,6 +46,8 @@ module.exports = (app) => {
 
     app.get('/article/details/:id', articleController.details);
     app.get('/picture/details/:id', pictureController.details);
+
+    app.post('/article/details/:id', commentController.addComment);
 
     app.get('/article/edit/:id', articleController.editGet);
     app.post('/article/edit/:id', articleController.editPost);

@@ -1,6 +1,8 @@
 const Article = require('mongoose').model('Article');
 const Category = require('mongoose').model('Category');
 const Tag = require('mongoose').model('Tag');
+const Comment = require('mongoose').model('Comment');
+const User = require('mongoose').model('User');
 const initializeTags = require('./../models/Tag').initializeTags;
 var fs = require("fs");
 module.exports = {
@@ -61,15 +63,22 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).populate('author tags').then(article => {
-            if (!req.user){
-                res.render('article/details', { article: article, isUserAuthorized: false});
-                return;
-            }
 
-            req.user.isInRole('Admin').then(isAdmin => {
-                let isUserAuthorized = isAdmin || req.user.isAuthor(article);
+            Comment.find({article:article.id}).populate('author').then(comment =>{
 
-                res.render('article/details', { article: article, isUserAuthorized: isUserAuthorized});
+                //console.log(comment.author);
+                User.findOne({_id:comment.author}).then(user => {
+                    //console.log(user);
+                    if (!req.user){
+                        res.render('article/details', { article: article,comments:comment,author:user,isUserAuthorized: false});
+                        return;
+                    }
+                    req.user.isInRole('Admin').then(isAdmin => {
+                        let isUserAuthorized = isAdmin || req.user.isAuthor(article);
+
+                        res.render('article/details', { article: article,comments:comment,author:user,isUserAuthorized: isUserAuthorized});
+                    });
+                });
             });
         });
     },
@@ -103,7 +112,7 @@ module.exports = {
 
     editPost: (req, res) => {
         let id = req.params.id;
-
+        //console.log(id);
         if(!req.isAuthenticated()){
             let returnUrl = `/article/edit/${id}`;
             req.session.returnUrl = returnUrl;
@@ -234,4 +243,5 @@ module.exports = {
 
         //res.redirect('home/index');
     }
+
 };
