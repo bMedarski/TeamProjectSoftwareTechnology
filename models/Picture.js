@@ -28,21 +28,21 @@ pictureSchema.method({
         });
 
         /*let Tag = mongoose.model('Tag');
-        for (let tagId of this.tags){
-            Tag.findById(tagId).then(tag => {
-                if (tag) {
-                    tag.pictures.push(this.id);
-                    tag.save();
-                }
-            });
-        }*/
+         for (let tagId of this.tags){
+         Tag.findById(tagId).then(tag => {
+         if (tag) {
+         tag.pictures.push(this.id);
+         tag.save();
+         }
+         });
+         }*/
     },
 
     prepareDelete: function () {
         let User = mongoose.model('User');
         User.findById(this.author).then(user => {
             // If user is not deleted already - when we delete from User.
-            if(user){
+            if (user) {
                 user.pictures.remove(this.id);
                 user.save();
             }
@@ -55,22 +55,23 @@ pictureSchema.method({
                 category.pictures.remove(this.id);
                 category.save();
             }
-        });
+        })
 
-        let Tag = mongoose.model('Tag');
-        for (let tagId of this.tags){
-            Tag.findById(tagId).then(tag => {
-                if (tag) {
-                    tag.pictures.remove(this.id);
-                    tag.save();
-                }
-            });
-        }
-    },
+        //    let Tag = mongoose.model('Tag');
+        //    for (let tagId of this.tags){
+        //        Tag.findById(tagId).then(tag => {
+        //            if (tag) {
+        //               tag.pictures.remove(this.id);
+        //                tag.save();
+        //            }
+        //         });
+        //     }
+        //  },
 
-    deleteTag: function (tagId){
-        this.tags.remove(tagId);
-        this.save();
+        //   deleteTag: function (tagId){
+        //      this.tags.remove(tagId);
+        //     this.save();
+        // }
     }
 });
 

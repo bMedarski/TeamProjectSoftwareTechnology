@@ -124,13 +124,13 @@ module.exports = {
         Picture.findById(id).populate('tags').then(picture => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin && !req.user.isAuthor(picture)) {
-                    res.redirect('/');
+                    res.redirect('/home/picture');
                     return;
                 }
                 Category.find({}).then(categories =>{
                     picture.categories = categories;
 
-                    picture.tagNames = picture.tags.map(tag => {return tag.name});
+                   // picture.tagNames = picture.tags.map(tag => {return tag.name});
                     res.render('picture/edit', picture)
                 });
             });
@@ -153,9 +153,9 @@ module.exports = {
         let errorMsg = '';
         if (!pictureArgs.title){
             errorMsg = 'picture title cannot be empty!';
-        } else if (!pictureArgs.showPic) {
-            errorMsg = 'Please upload a picture!'
-        }
+        }// else if (!pictureArgs.showPic) {
+          //  errorMsg = 'Please upload a picture!'
+       //}
 
         if(errorMsg) {
             res.render('picture/edit', {error: errorMsg})
@@ -170,21 +170,26 @@ module.exports = {
                 picture.title = pictureArgs.title;
                 picture.showPic = pictureArgs.showPic;
 
-                let newTagNames = pictureArgs.tags.split(/\s+|,/).filter(tag => {return tag});
+               // picture.img.data = fs.readFileSync(req.file.path);
+
+                //picture.showPic.img.contentType='image/png';
+               // picture.img.name=showPic.file.filename;
+
+           //     let newTagNames = pictureArgs.tags.split(/\s+|,/).filter(tag => {return tag});
 
                 // Get me the old picture's tags which are not
                 // re-entered.
-                let oldTags = picture.tags
-                    .filter(tag => {
-                        return newTagNames.indexOf(tag.name) === -1;
-                    });
+             //   let oldTags = picture.tags
+             //       .filter(tag => {
+             //           return newTagNames.indexOf(tag.name) === -1;
+             //       });
 
-                for(let tag of oldTags){
-                    tag.deletePicture(picture.id);
-                    picture.deleteTag(tag.id);
-                }
+            //    for(let tag of oldTags){
+            //        tag.deletePicture(picture.id);
+             //       picture.deleteTag(tag.id);
+            //    }
 
-                initializeTagsPics(newTagNames, picture.id);
+               // initializeTagsPics(newTagNames, picture.id);
 
                 picture.save((err) => {
                     if(err) {
@@ -222,7 +227,7 @@ module.exports = {
                     return;
                 }
 
-                picture.tagNames = picture.tags.map(tag => {return tag.name});
+            //    picture.tagNames = picture.tags.map(tag => {return tag.name});
                 res.render('picture/delete', picture)
             });
         });
@@ -247,8 +252,8 @@ module.exports = {
                 }
 
                 Picture.findOneAndRemove({_id: id}).then(picture => {
-                    picture.prepareDeletePic();
-                    res.redirect('/');
+                    picture.prepareDelete();
+                    res.redirect('/home/picture');
                 });
             });
         });

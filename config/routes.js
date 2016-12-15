@@ -52,6 +52,12 @@ module.exports = (app) => {
     app.get('/article/edit/:id', articleController.editGet);
     app.post('/article/edit/:id', articleController.editPost);
 
+    app.get('/picture/edit/:id', pictureController.editGet);
+    app.post('/picture/edit/:id', upload.single('showPic'), pictureController.editPost);
+
+    app.get('/picture/delete/:id', pictureController.deleteGet);
+    app.post('/picture/delete/:id', pictureController.deletePost);
+
     app.get('/article/delete/:id', articleController.deleteGet);
     
     app.post('/home/picture', pictureController.searchPictureGet);

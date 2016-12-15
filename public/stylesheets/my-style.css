@@ -460,3 +460,14 @@ table .info,
     resize: none;
     overflow: auto;
 }
+.single-img{
+    width: 600px;
+    height: 500px;
+    color: gold;
+    background-color: rgba(100,100,100,0.6);
+    border-radius: 10px;
+    border: 1px solid gold;
+    padding:10px;
+    margin: 10px;
+
+}
