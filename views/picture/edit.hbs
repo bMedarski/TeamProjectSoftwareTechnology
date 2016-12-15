@@ -1,0 +1,40 @@
+<div class="container body-content span=8 offset=2 body-main">
+    <div class="well">
+        <form class="form-horizontal" method="POST" action="/picture/edit/{{id}}">
+            <fieldset>
+                <legend>Edit Picture</legend>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="pictureTitle">Edit Picture Title</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="pictureTitle" placeholder="Picture Title" value="{{title}}" name="title" required >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="pictureShowPic">Upload Image</label>
+                    <div class="col-sm-4 fileUpload btn btn-default">
+                        <span>Upload Image</span>
+                        <input type="file" class="form-control upload" id="pictureShowPic" name="showPic" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="category">Category</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="select" name="category">
+                            {{#each categories}}
+                                <option class="option" value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <button type="submit" href="/picture/edit/{{id}}" class="btn btn-default">Edit</button>
+                        <a href="/" class="btn btn-default">Cancel</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
