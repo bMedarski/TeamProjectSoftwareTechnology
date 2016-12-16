@@ -27,17 +27,14 @@
                         <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required name="repeatedPassword">
                     </div>
                 </div>
-                <input name="avatar" type="file" class="form-control">
-                <!--<div class="form-group">
-                    <label class="col-sm-4 control-label" for="category">Articles</label>
-                    <div class="col-sm-6">
-                        <select class="form-control" id="select" name="category">
-                            {{#each articles}}
-                                <option value="{{this.id}}"><a class="btn btn-default btn-xs" style="padding: 5px" href="/article/details/{{this.id}}">{{this.title}}</a></option>
-                            {{/each}}
-                        </select>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="img">Avatar</label>
+                    <div class="col-sm-4 fileUpload btn btn-default">
+                        <span>Upload</span>
+                        <input type="file" class="form-control upload"  id="img" placeholder="img" name="avatar">
                     </div>
-                </div>-->
+                </div>
+
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="dropdownMenu2">Articles</label>
                 <div class="dropdown col-sm-4">
@@ -51,7 +48,21 @@
                         {{/each}}
                     </ul>
                 </div>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="dropdownMenu2">Comments</label>
+                        <div class="dropdown col-sm-4">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Comments
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                {{#each comments}}
+                                    <li><a class="btn btn-default btn-xs" style="padding: 5px" href="/article/details/{{this.article.id}}">{{this.article.title}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
                         <button type="submit" class="btn btn-default">Submit</button>

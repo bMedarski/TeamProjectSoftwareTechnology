@@ -15,7 +15,7 @@ module.exports = {
 
     index: (req, res) => {
         Article.find({}).sort({date: -1}).limit(3).populate('author tags').then(articles => {
-        date = [];
+        let date = [];
             for(let i=0;i<articles.length; i++){
                 date.push(articles[i].date);
                 //console.log(date[i]);

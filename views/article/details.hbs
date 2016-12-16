@@ -79,15 +79,12 @@
         <div class="col-md-12">
             <article class="comment">
                 <p>{{ this.content }}</p>
-
+                <p class=" pull-left">{{date}}</p>
                 <p class=" pull-right">by {{author.fullName}}</p>
-                <!--<div class="pull-right">
-                    {{#if isUserAuthorized}}
-                        <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                        <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
-                    {{/if}}
-                    <a class="btn btn-default" style="padding: 10px" href="/">Back &raquo;</a>
-                </div>-->
+                <!--{{#if isUserAuthorized}}
+                    <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
+                    <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                {{/if}}-->
             </article>
         </div>
         {{/each}}

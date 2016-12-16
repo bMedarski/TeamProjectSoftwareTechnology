@@ -97,8 +97,13 @@ module.exports = {
         let user = req.user;
         let userId = user.id;
         Article.find({author:userId}).populate('author').then(article => {
-            res.render('user/details', {user:user,articles:article});
+            Comment.find({author:userId}).populate('article').then(comment => {
+                let date = [];
+
+
+            res.render('user/details', {user:user,articles:article,comments:comment});
         });
+    });
     },
     detailsPost: (req, res) => {
         let detailsArgs = req.body;

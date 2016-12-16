@@ -4,7 +4,8 @@ const Tag = require('mongoose').model('Tag');
 const Comment = require('mongoose').model('Comment');
 const User = require('mongoose').model('User');
 const initializeTags = require('./../models/Tag').initializeTags;
-var fs = require("fs");
+const moment = require('moment');
+const fs = require("fs");
 module.exports = {
     createGet: (req, res) => {
         if (!req.isAuthenticated()){
@@ -63,20 +64,30 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).populate('author tags').then(article => {
-
             Comment.find({article:article.id}).populate('author').then(comment =>{
-
-                //console.log(comment.author);
                 User.findOne({_id:comment.author}).then(user => {
-                    //console.log(user);
+                    let date = [];
+                    /*for(let i=0;i<comment.length; i++){
+                     //console.log(comment[i].date);
+                     date.push(comment[i].date);
+                     }*/
+                    for(let i=0;i<comment.length; i++){
+                        //console.log(date[i]);
+
+                        date[i] = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
+                        console.log(date[i]);
+                        comment[i].date = date[i];
+                        console.log(comment[i].date);
+                    }
                     if (!req.user){
-                        res.render('article/details', { article: article,comments:comment,author:user,isUserAuthorized: false});
+                        res.render('article/details', { article: article,comments:comment,author:user,date:date,isUserAuthorized: false});
                         return;
                     }
                     req.user.isInRole('Admin').then(isAdmin => {
-                        let isUserAuthorized = isAdmin || req.user.isAuthor(article);
+                        let isUserAuthorized = isAdmin || req.user.isAuthor(comment);
 
-                        res.render('article/details', { article: article,comments:comment,author:user,isUserAuthorized: isUserAuthorized});
+
+                        res.render('article/details', { article: article,comments:comment,author:user, date:date,isUserAuthorized: isAdmin});
                     });
                 });
             });
@@ -93,7 +104,6 @@ module.exports = {
             res.redirect('/user/login');
             return;
         }
-
         Article.findById(id).populate('tags').then(article => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin && !req.user.isAuthor(article)) {
