@@ -41,7 +41,7 @@
 .btn-default {
     color: #EAD94C;
     background: rgba(0,0,0,0.2);
-    border-color: #DD7373;
+    border-color: #51A3A3;
     text-shadow: 1px 1px black;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
@@ -115,7 +115,7 @@
 }
 .form-control{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid #DD7373;
+    border: 1px solid #51A3A3;
     -webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
@@ -163,7 +163,7 @@ legend{
     border-bottom: 1px solid #DD7373;
 }
 .thumbnail {
-    border: 1px solid #DD7373;
+    border: 1px solid #51A3A3;
     background-color: rgba(100,100,100,0);
 }
 .thumb{
@@ -297,7 +297,7 @@ table .info,
     margin-top: 10px;
     margin-bottom: 10px;
     border: 0;
-    border-top: 1px solid #DD7373;
+    border-top: 1px solid #51A3A3;
 }
 .fileUpload {
     position: relative;
