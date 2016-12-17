@@ -40,7 +40,7 @@
 }
 .btn-default {
     color: #EAD94C;
-    background: rgba(0,0,0,0.2);
+    background: #0A2342;
     border-color: #51A3A3;
     text-shadow: 1px 1px black;
     webkit-transition-duration: 0.5s; /* Safari */
@@ -48,7 +48,7 @@
 }
 .btn-default:hover{
     color: #EAD94C;
-    background: rgba(100,100,100,0.5);
+    background: rgba(100,100,100,0.8);
     border-color: #DD7373;
     text-shadow: 1px 1px black;
 }
@@ -246,11 +246,11 @@ a {
 }
 #select{
     background-color: rgba(100,100,100,0.9);
-    color: #EAD94C;
+    color: honeydew;
     text-shadow: 2px 2px black;
 }
 #select:hover{
-    color: #EAD94C;
+    color: honeydew;
     text-shadow: 2px 2px black;
     border: 1px solid #DD7373;
 }
@@ -261,7 +261,7 @@ a {
 }
 .option {
     background: rgba(100,100,100,0.9);
-    color:#EAD94C;
+    color:honeydew;
     text-shadow:2px 2px black;
 }
 small .author{
@@ -304,6 +304,7 @@ table .info,
     overflow: hidden;
     width: 280px;
     margin-left: 15px;
+    color: honeydew;
 
 }
 .fileUpload input.upload {
@@ -436,16 +437,16 @@ table .info,
     width: 30%;
     height: 30%;
     color: #EAD94C;
-    background-color: rgba(100,100,100,0.6);
+    background-color: #0A2342;
     border-radius: 10px;
     border: 1px solid #DD7373;
     padding:10px;
     margin: 10px;
 }
 .comment{
-    color: #EAD94C;
+    color: honeydew;
     text-shadow: 2px 2px black;
-    background-color: rgba(100,100,100,0.8);
+    background-color: #0A2342;
     border-radius: 10px;
     border: 1px solid #DD7373;
     padding:10px;
@@ -467,7 +468,7 @@ table .info,
     width: 600px;
     height: 500px;
     color: #EAD94C;
-    background-color: rgba(100,100,100,0.6);
+    background-color: #0A2342;
     border-radius: 10px;
     border: 1px solid #DD7373;
     padding:10px;
