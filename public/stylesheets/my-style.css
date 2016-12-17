@@ -10,36 +10,36 @@
     border-radius: 0;
     border: 0;
     border-bottom: 1px solid #DD7373;
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
 }
 .navbar-default .navbar-nav > li > a {
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     font-size: large;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
 .navbar-default .navbar-nav > li > a:hover {
-    color: gold;
+    color: #EAD94C;
 }
 .navbar-default .navbar-brand {
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     font-size: 25px;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
 .navbar-default .navbar-brand:hover {
-    color: gold;
+    color: #EAD94C;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     background: rgba(100,100,100,0.5);
 }
 .btn-default {
-    color: gold;
+    color: #EAD94C;
     background: rgba(0,0,0,0.2);
     border-color: #DD7373;
     text-shadow: 1px 1px black;
@@ -47,19 +47,19 @@
     transition-duration: 0.5s;
 }
 .btn-default:hover{
-    color: gold;
+    color: #EAD94C;
     background: rgba(100,100,100,0.5);
     border-color: #DD7373;
     text-shadow: 1px 1px black;
 }
 .btn-default:active{
-    color: gold;
+    color: #EAD94C;
     background: rgba(100,100,100,0.5);
     border-color: #DD7373;
     text-shadow: 1px 1px black;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: gold;
+    color: #EAD94C;
     background: rgba(100,100,100,0.5);
     text-shadow: 2px 2px black;
 }
@@ -69,7 +69,7 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: gold;
+    color: #EAD94C;
     white-space: nowrap;
     text-shadow: 2px 2px black;
 }
@@ -79,7 +79,7 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: gold;
+    color: #EAD94C;
     white-space: nowrap;
     background: rgba(100,100,100,0.8);
     text-shadow: 2px 2px black;
@@ -100,7 +100,7 @@
     background-color: rgba(100,100,100,0.8);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     border-radius: 4px;
     text-shadow: 2px 2px black;
 }
@@ -108,10 +108,10 @@
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
-    background-color: gold;
+    background-color: #EAD94C;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #DD7373;
+    border-color: #51A3A3;
 }
 .form-control{
     background-color: rgba(100,100,100,0.8);
@@ -122,13 +122,13 @@
 .form-control:focus{
     background-color: rgba(100,100,100,0.8);
     border: 1px solid #DD7373;
-    color: gold;
-    box-shadow:1px 1px gold;
+    color: #EAD94C;
+    box-shadow:1px 1px #EAD94C;
 }
 legend{
     text-align: center;
-    color: gold;
-    border-bottom: 1px solid #DD7373;
+    color: #EAD94C;
+    border-bottom: 1px solid #51A3A3;
     padding: 10px 0;
 }
 .body-main{
@@ -146,7 +146,7 @@ legend{
 }
 .footer{
     text-align: center;
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     font-size: 20px;
     border-bottom: none;
@@ -156,14 +156,14 @@ legend{
 
 }
 .page-header {
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     padding-bottom: 9px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #DD7373;
 }
 .thumbnail {
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     background-color: rgba(100,100,100,0);
 }
 .thumb{
@@ -171,7 +171,7 @@ legend{
     height: 300px;
 }
 .body{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.9);
     border-radius: 10px;
@@ -204,11 +204,11 @@ legend{
     border: none;
 }
 .list-unstyled > li > a{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
 }
 .mainColor{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
 }
 .page-header{
@@ -227,46 +227,46 @@ h2{
     float: right;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    gold;
+    color:    #EAD94C;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    gold;
+    color:    #EAD94C;
     opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    gold;
+    color:    #EAD94C;
     opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:    gold;
+    color:    #EAD94C;
 }
 a {
-    color: gold;
+    color: #EAD94C;
     text-decoration: none;
 }
 #select{
     background-color: rgba(100,100,100,0.9);
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
 }
 #select:hover{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     border: 1px solid #DD7373;
 }
 .option:hover{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     border: 1px solid #DD7373;
 }
 .option {
     background: rgba(100,100,100,0.9);
-    color:gold;
+    color:#EAD94C;
     text-shadow:2px 2px black;
 }
 small .author{
     text-shadow: 2px 2px black;
-    color:    gold;
+    color:    #EAD94C;
 }
 .categories{
     width: 23%;
@@ -332,7 +332,7 @@ table .info,
     line-height: 55px;
 }
 .modal-footer{
-    color: gold;
+    color: #EAD94C;
 }
 .hovereffect {
     width:100%;
@@ -432,7 +432,7 @@ table .info,
 .body-img{
     width: 30%;
     height: 30%;
-    color: gold;
+    color: #EAD94C;
     background-color: rgba(100,100,100,0.6);
     border-radius: 10px;
     border: 1px solid #DD7373;
@@ -440,7 +440,7 @@ table .info,
     margin: 10px;
 }
 .comment{
-    color: gold;
+    color: #EAD94C;
     text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.8);
     border-radius: 10px;
@@ -463,7 +463,7 @@ table .info,
 .single-img{
     width: 600px;
     height: 500px;
-    color: gold;
+    color: #EAD94C;
     background-color: rgba(100,100,100,0.6);
     border-radius: 10px;
     border: 1px solid #DD7373;
