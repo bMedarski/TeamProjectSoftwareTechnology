@@ -12,6 +12,7 @@
     border-bottom: 3px solid #DD7373;
     color: #EAD94C;
     text-shadow: 2px 2px black;
+    box-shadow: 1px 1px #CA1728;
 }
 .navbar-default .navbar-nav > li > a {
     color: #EAD94C;
@@ -103,6 +104,7 @@
     border: 2px solid #DD7373;
     border-radius: 4px;
     text-shadow: 2px 2px black;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 .dropdown-menu .divider {
     height: 1px;
@@ -142,6 +144,7 @@ legend{
     padding:30px;
     font-size: 1.3em;
     margin-bottom: 10px;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 .footer{
     text-align: center;
@@ -325,6 +328,7 @@ table .info,
     overflow: hidden;
     border-radius: 100%;
     border: 2px solid #DD7373;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 .liIMage{
     display: block;
@@ -336,6 +340,7 @@ table .info,
     border-radius: 0;
     border: 0;
     border-top: 3px solid #DD7373;
+    box-shadow: 0 -1px 0 0 #CA1728;
 }
 .modal-footer{
     color: #EAD94C;
@@ -449,6 +454,7 @@ table .info,
     border: 2px solid #DD7373;
     padding:10px;
     margin: 10px;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 .comment{
     color: honeydew;
@@ -459,6 +465,7 @@ table .info,
     padding:10px;
     padding-bottom: 25px;
     margin-top: 10px;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 #comments{
     display: inline-block;
@@ -480,6 +487,7 @@ table .info,
     border: 2px solid #DD7373;
     padding:10px;
     margin: 10px;
+    box-shadow: 0 0 0 1px #CA1728;
 
 }
 .blog-categories-home{
