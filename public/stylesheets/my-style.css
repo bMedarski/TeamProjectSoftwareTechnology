@@ -122,13 +122,12 @@
 .form-control:focus{
     background-color: rgba(100,100,100,0.8);
     border: 1px solid #DD7373;
-    color: #EAD94C;
-    box-shadow:1px 1px #EAD94C;
+    color: honeydew;
 }
 legend{
     text-align: center;
     color: #EAD94C;
-    border-bottom: 1px solid #51A3A3;
+    border-bottom: 2px solid #51A3A3;
     padding: 10px 0;
 }
 .body-main{
@@ -325,18 +324,25 @@ table .info,
     line-height: 100%;
     overflow: hidden;
     border-radius: 100%;
-    border: 1px solid #DD7373;
+    border: 2px solid #DD7373;
 }
 .liIMage{
     display: block;
     height: 55px;
     line-height: 55px;
 }
+.footer-bar{
+    background: #0A2342;
+    border-radius: 0;
+    border: 0;
+    border-top: 3px solid #DD7373;
+}
 .modal-footer{
     color: #EAD94C;
     text-shadow: 1px 1px black;
     font-size: larger;
     font-weight: bold;
+    text-align: center;
 }
 .hovereffect {
     width:100%;
