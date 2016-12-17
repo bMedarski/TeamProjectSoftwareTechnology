@@ -126,6 +126,11 @@
     border: 1px solid #DD7373;
     color: honeydew;
 }
+.form-control:hover{
+    background-color: rgba(100,100,100,0.8);
+    border: 1px solid #DD7373;
+    color: honeydew;
+}
 legend{
     text-align: center;
     color: #EAD94C;
@@ -327,8 +332,8 @@ table .info,
     line-height: 100%;
     overflow: hidden;
     border-radius: 100%;
-    border: 2px solid #DD7373;
-    box-shadow: 0 0 0 1px #CA1728;
+    border: 2px solid #51A3A3;
+    /box-shadow: 0 0 0 1px #CA1728;
 }
 .liIMage{
     display: block;
