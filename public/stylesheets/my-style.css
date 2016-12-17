@@ -333,6 +333,9 @@ table .info,
 }
 .modal-footer{
     color: #EAD94C;
+    text-shadow: 1px 1px black;
+    font-size: larger;
+    font-weight: bold;
 }
 .hovereffect {
     width:100%;
