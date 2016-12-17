@@ -1,15 +1,15 @@
 #body {
-    background: url("../images/Cathedral.jpg") no-repeat center center fixed;
+    background: url("../images/rock-climbing-wallpaper.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .navbar, .navbar-default{
-    background: rgba(0,0,0,0.8);
+    background: #0A2342;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid gold;
+    border-bottom: 1px solid #DD7373;
     color: gold;
     text-shadow: 2px 2px black;
 }
@@ -41,7 +41,7 @@
 .btn-default {
     color: gold;
     background: rgba(0,0,0,0.2);
-    border-color: gold;
+    border-color: #DD7373;
     text-shadow: 1px 1px black;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
@@ -49,13 +49,13 @@
 .btn-default:hover{
     color: gold;
     background: rgba(100,100,100,0.5);
-    border-color: gold;
+    border-color: #DD7373;
     text-shadow: 1px 1px black;
 }
 .btn-default:active{
     color: gold;
     background: rgba(100,100,100,0.5);
-    border-color: gold;
+    border-color: #DD7373;
     text-shadow: 1px 1px black;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -111,33 +111,33 @@
     background-color: gold;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: gold;
+    border-color: #DD7373;
 }
 .form-control{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     -webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
 .form-control:focus{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     color: gold;
     box-shadow:1px 1px gold;
 }
 legend{
     text-align: center;
     color: gold;
-    border-bottom: 1px solid gold;
+    border-bottom: 1px solid #DD7373;
     padding: 10px 0;
 }
 .body-main{
-    color: gold;
+    color: honeydew;
     text-shadow: 2px 2px black;
-    background-color: rgba(100,100,100,0.8);
+    background-color: #0A2342;
     margin-top: 0;
     border-radius: 10px;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     -webkit-transition-duration: 0.9s; /* Safari */
     transition-duration: 0.9s;
     padding:30px;
@@ -160,7 +160,7 @@ legend{
     text-shadow: 2px 2px black;
     padding-bottom: 9px;
     margin: 40px 0 20px;
-    border-bottom: 1px solid gold;
+    border-bottom: 1px solid #DD7373;
 }
 .thumbnail {
     border: 1px solid gold;
@@ -175,7 +175,7 @@ legend{
     text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.9);
     border-radius: 10px;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     -webkit-transition-duration: 0.9s; /* Safari */
     transition-duration: 0.9s;
     padding: 0 22px;
@@ -252,12 +252,12 @@ a {
 #select:hover{
     color: gold;
     text-shadow: 2px 2px black;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
 }
 .option:hover{
     color: gold;
     text-shadow: 2px 2px black;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
 }
 .option {
     background: rgba(100,100,100,0.9);
@@ -297,7 +297,7 @@ table .info,
     margin-top: 10px;
     margin-bottom: 10px;
     border: 0;
-    border-top: 1px solid gold;
+    border-top: 1px solid #DD7373;
 }
 .fileUpload {
     position: relative;
@@ -324,7 +324,7 @@ table .info,
     line-height: 100%;
     overflow: hidden;
     border-radius: 100%;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
 }
 .liIMage{
     display: block;
@@ -435,7 +435,7 @@ table .info,
     color: gold;
     background-color: rgba(100,100,100,0.6);
     border-radius: 10px;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     padding:10px;
     margin: 10px;
 }
@@ -444,7 +444,7 @@ table .info,
     text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.8);
     border-radius: 10px;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     padding:10px;
     padding-bottom: 25px;
     margin-top: 10px;
@@ -466,7 +466,7 @@ table .info,
     color: gold;
     background-color: rgba(100,100,100,0.6);
     border-radius: 10px;
-    border: 1px solid gold;
+    border: 1px solid #DD7373;
     padding:10px;
     margin: 10px;
 
