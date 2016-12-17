@@ -340,9 +340,10 @@ table .info,
 .modal-footer{
     color: #EAD94C;
     text-shadow: 1px 1px black;
-    font-size: larger;
-    font-weight: bold;
+    font-size: 14pt;
+    /font-weight: bold;
     text-align: center;
+    font-family: 'Satisfy', cursive;
 }
 .hovereffect {
     width:100%;
