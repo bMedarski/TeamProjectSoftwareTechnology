@@ -1,5 +1,4 @@
 <div class="container body-content">
-    <h1>Searching by tag - {{ tag.name }}</h1>
     <div class="row">
         {{#each articles}}
             <div class="col-md-6">
@@ -21,7 +20,7 @@
                                href="/tag/{{this.name}}">{{ this.name }}</a>
                         {{/each}}
                     </div>
-                    <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <span class=""></span></a>
+                    <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <i class="fa fa-forward" aria-hidden="true"></i><span class=""></span></a>
                 </article>
             </div>
         {{/ each}}
