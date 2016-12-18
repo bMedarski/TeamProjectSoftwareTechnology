@@ -41,6 +41,7 @@
                     <p class="lead" style="margin-bottom: 8px">
                         by <a href="#" class="mainColor authorArt" >{{article.author.fullName}}</a>
                     </p>
+                    <p><span class=""></span>{{article.created}}</p>
                     <p class="clearfix">
                         {{#if article.img.name}}
                             <img class="img-responsive thumbnail" src="/uploads/{{article.img.name}}" alt="">
@@ -81,6 +82,9 @@
                 <p>{{ this.content }}</p>
 
                 <p class=" pull-right">by {{author.fullName}}</p>
+                <p class=" pull-right">{{comment.created}}</p>
+                <p><span class=""></span>{{comment.created}}</p>
+
                 <!--<div class="pull-right">
                     {{#if isUserAuthorized}}
                         <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>

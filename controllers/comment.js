@@ -28,47 +28,81 @@ module.exports = {
         if (errorMsg) {
             res.render('article/details', {error: errorMsg});
         }
-        var commentObject  = new Comment();
+        var commentObject = new Comment();
         commentObject.content = commentArgs.comment;
         commentObject.author = user.id;
         commentObject.article = id;
 
         //console.log(commentObject);
-        Comment.create(commentObject).then(comment =>{
+        Comment.create(commentObject).then(comment => {
             /*let idArticle = comment.article;
-            let userId = comment.author;*/
+             let userId = comment.author;*/
             //console.log(idArticle);
             //console.log(userId);
             //console.log(comment.id);
             /*Article.update(
-                { "_id" : id   },
-                {
-                    "$push" : {
-                        "comments" : comment.id
-                    }
-                }
-            );*/
+             { "_id" : id   },
+             {
+             "$push" : {
+             "comments" : comment.id
+             }
+             }
+             );*/
             /*Article.find({_id:id}).then(article => {
-                if (article) {
-                    console.log(article);
-                    console.log(comment.id);
-                    article.comments.add(comment.id);
-                    //console.log(this.id);
-                    article.save();
-                }
-            });*/
-           /* User.find({_id:userId}).then(user =>{
-                if (user) {
-                    console.log(user);
-                    //user.comments.push(comment.id);
-                    //console.log(this.id);
-                    //user.save();
-                }
-            });*/
+             if (article) {
+             console.log(article);
+             console.log(comment.id);
+             article.comments.add(comment.id);
+             //console.log(this.id);
+             article.save();
+             }
+             });*/
+            /* User.find({_id:userId}).then(user =>{
+             if (user) {
+             console.log(user);
+             //user.comments.push(comment.id);
+             //console.log(this.id);
+             //user.save();
+             }
+             });*/
             comment.prepareInsert();
             res.redirect('/article/details/' + id);
         });
 
+    },
 
-    }
+        addCommentPic: (req,res) => {
+            if (!req.isAuthenticated()) {
+                let returnUrl = '/picture/create';
+                req.session.returnUrl = returnUrl;
+                res.redirect('/user/login');
+                return;
+            }
+
+            let user = req.user;
+            let userName = user.fullName;
+            let userId = user.id;
+            let commentArgs = req.body;
+            let id = req.params.id;
+
+            let errorMsg = '';
+            if (!commentArgs.comment) {
+                errorMsg = 'Missing comment content!';
+            }
+            if (errorMsg) {
+                res.render('picture/details', {error: errorMsg});
+            }
+            var commentObject = new Comment();
+            commentObject.content = commentArgs.comment;
+            commentObject.author = user.id;
+            commentObject.picture = id;
+
+            //console.log(commentObject);
+            Comment.create(commentObject).then(comment => {
+
+                comment.prepareInsertPic();
+                res.redirect('/picture/details/' + id);
+            });
+
+        }
 };

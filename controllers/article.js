@@ -4,6 +4,7 @@ const Tag = require('mongoose').model('Tag');
 const Comment = require('mongoose').model('Comment');
 const User = require('mongoose').model('User');
 const initializeTags = require('./../models/Tag').initializeTags;
+const moment = require('moment');
 var fs = require("fs");
 module.exports = {
     createGet: (req, res) => {
@@ -64,7 +65,13 @@ module.exports = {
 
         Article.findById(id).populate('author tags').then(article => {
 
+            const date = article.date;
+            article.created = moment(date).format("H:mm, DD-MMM-YYYY");
+
             Comment.find({article:article.id}).populate('author').then(comment =>{
+
+                const dateComment = comment.date;
+                comment.created = moment(dateComment).format("H:mm, DD-MMM-YYYY");
 
                 //console.log(comment.author);
                 User.findOne({_id:comment.author}).then(user => {
@@ -82,6 +89,8 @@ module.exports = {
             });
         });
     },
+
+
 
     editGet: (req, res) => {
         let id = req.params.id;

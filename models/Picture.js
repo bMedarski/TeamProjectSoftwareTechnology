@@ -6,6 +6,7 @@ let pictureSchema = mongoose.Schema({
     img:{data:Buffer, contentType:String, path:String, required: false, name:String},
     author: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'},
     category: {type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Category'},
+    comments: {type: mongoose.Schema.Types.ObjectId, ref:'Comment'},
     //tags: [{type: mongoose.Schema.Types.ObjectId, required: false, ref: 'Tag'}],
     date: {type: Date, default: Date.now()}
 });
@@ -55,7 +56,7 @@ pictureSchema.method({
                 category.pictures.remove(this.id);
                 category.save();
             }
-        })
+        });
 
         //    let Tag = mongoose.model('Tag');
         //    for (let tagId of this.tags){

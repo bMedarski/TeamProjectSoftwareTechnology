@@ -48,6 +48,7 @@ module.exports = (app) => {
     app.get('/picture/details/:id', pictureController.details);
 
     app.post('/article/details/:id', commentController.addComment);
+    app.post('/picture/details/:id', commentController.addCommentPic);
 
     app.get('/article/edit/:id', articleController.editGet);
     app.post('/article/edit/:id', articleController.editPost);
