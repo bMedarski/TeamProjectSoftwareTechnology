@@ -1,15 +1,18 @@
 const Picture = require('mongoose').model('Picture');
 const Category = require('mongoose').model('Category');
-const Tag = require('mongoose').model('Tag');
-const initializeTagsPics = require('mongoose').model('Tag').initializeTagsPics;
+const Comment = require('mongoose').model('Comment');
+const User = require('mongoose').model('User');
+const moment = require('moment');
+//const Tag = require('mongoose').model('Tag');
+//const initializeTagsPics = require('mongoose').model('Tag').initializeTagsPics;
 var fs = require("fs");
 module.exports = {
     searchPictureGet: (req, res) => {
         let searchArgs = req.body.search;
         //console.log(req.body.search);
         //console.log(searchArgs.search);
-        Picture.find({ title: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).then(picture => {
-                res.render('home/picture', {pictures:picture});
+        Picture.find({ title: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).populate('author').then(picture => {
+            res.render('home/searchPicture', {pictures:picture});
         });
 
         //res.redirect('home/index');
@@ -17,12 +20,12 @@ module.exports = {
     getPictures: (req, res) => {
         Picture.find({}).sort({date: -1}).then(pictures => {
             /*date = [];
-            for(let i=0;i<pictures.length; i++){
-                date.push(pictures[i].date);
-            }
-            for(let i=0;i<pictures.length; i++){
-                pictures[i].created = moment(date[i]).format("H:mm, DD-MMM-YYYY");
-            }*/
+             for(let i=0;i<pictures.length; i++){
+             date.push(pictures[i].date);
+             }
+             for(let i=0;i<pictures.length; i++){
+             pictures[i].created = moment(date[i]).format("H:mm, DD-MMM-YYYY");
+             }*/
             Category.find({}).then(categories => {
                 res.render('home/picture', {pictures: pictures,categories: categories});
             });
@@ -56,10 +59,10 @@ module.exports = {
 
         let errorMsg = '';
         /*if (!pictureArgs.title) {
-            errorMsg = 'Invalid title!';
-        } else if (!pictureArgs.showPic) {
-            errorMsg = 'Please upload an image!';
-        }*/
+         errorMsg = 'Invalid title!';
+         } else if (!pictureArgs.showPic) {
+         errorMsg = 'Please upload an image!';
+         }*/
 
         if (errorMsg) {
             res.render('picture/create', {error: errorMsg});
@@ -77,14 +80,15 @@ module.exports = {
         //console.log(req.body.category);
         pictureObject.title = req.body.title;
         pictureObject.author = req.user.id;
+
         //pictureObject.tags = [];
         Picture.create(pictureObject).then(picture => {
             /*// Get the tags from the input, split it by space or semicolon,
-            // then remove empty entries.
-            let tagNames = pictureObject.tagNames.split(/\s+|,/).filter(tag => {
-                return tag
-            });
-            initializeTagsPics(tagNames, picture.id);*/
+             // then remove empty entries.
+             let tagNames = pictureObject.tagNames.split(/\s+|,/).filter(tag => {
+             return tag
+             });
+             initializeTagsPics(tagNames, picture.id);*/
 
             picture.prepareInsert();
             res.redirect('/home/picture');
@@ -93,19 +97,43 @@ module.exports = {
     },
 
 
+    /*details: (req, res) => {
+     let id = req.params.id;
+     Picture.findById(id).populate('author tags').then(picture => {
+     const date = picture.date;
+     picture.created = moment(date).format("H:mm, DD-MMM-YYYY");
+     if (!req.user){
+     res.render('picture/details', { picture: picture, isUserAuthorized: false});
+     return;
+     }
+     req.user.isInRole('Admin').then(isAdmin => {
+     let isUserAuthorized = isAdmin || req.user.isAuthor(picture);
+     res.render('picture/details', { picture: picture, isUserAuthorized: isUserAuthorized});
+     });
+     });
+     },*/
+
     details: (req, res) => {
         let id = req.params.id;
+        //const user = req.params.user;
 
         Picture.findById(id).populate('author tags').then(picture => {
-            if (!req.user){
-                res.render('picture/details', { picture: picture, isUserAuthorized: false});
-                return;
-            }
+            picture.date = moment(picture.date).format("H:mm, DD-MMM-YYYY");
 
-            req.user.isInRole('Admin').then(isAdmin => {
-                let isUserAuthorized = isAdmin || req.user.isAuthor(picture);
+            Comment.find({picture:picture.id}).populate('author').then(comment =>{
 
-                res.render('picture/details', { picture: picture, isUserAuthorized: isUserAuthorized});
+                User.findOne({_id:comment.author}).then(user => {
+                    //console.log(user);
+                    if (!req.user){
+                        res.render('picture/details', { picture: picture, comments:comment, author:user, date:picture.date,isUserAuthorized: false});
+                        return;
+                    }
+                    req.user.isInRole('Admin').then(isAdmin => {
+                        let isUserAuthorized = isAdmin || req.user.isAuthor(picture);
+
+                        res.render('picture/details', { picture: picture, comments:comment, author:user,date:picture.date, isUserAuthorized: isUserAuthorized});
+                    });
+                });
             });
         });
     },
@@ -124,13 +152,13 @@ module.exports = {
         Picture.findById(id).populate('tags').then(picture => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin && !req.user.isAuthor(picture)) {
-                    res.redirect('/');
+                    res.redirect('/home/picture');
                     return;
                 }
                 Category.find({}).then(categories =>{
                     picture.categories = categories;
 
-                    picture.tagNames = picture.tags.map(tag => {return tag.name});
+                    // picture.tagNames = picture.tags.map(tag => {return tag.name});
                     res.render('picture/edit', picture)
                 });
             });
@@ -153,9 +181,9 @@ module.exports = {
         let errorMsg = '';
         if (!pictureArgs.title){
             errorMsg = 'picture title cannot be empty!';
-        } else if (!pictureArgs.showPic) {
-            errorMsg = 'Please upload a picture!'
-        }
+        }// else if (!pictureArgs.showPic) {
+        //  errorMsg = 'Please upload a picture!'
+        //}
 
         if(errorMsg) {
             res.render('picture/edit', {error: errorMsg})
@@ -168,23 +196,11 @@ module.exports = {
 
                 picture.category = pictureArgs.category;
                 picture.title = pictureArgs.title;
-                picture.showPic = pictureArgs.showPic;
+                //picture.showPic = pictureArgs.showPic;
 
-                let newTagNames = pictureArgs.tags.split(/\s+|,/).filter(tag => {return tag});
-
-                // Get me the old picture's tags which are not
-                // re-entered.
-                let oldTags = picture.tags
-                    .filter(tag => {
-                        return newTagNames.indexOf(tag.name) === -1;
-                    });
-
-                for(let tag of oldTags){
-                    tag.deletePicture(picture.id);
-                    picture.deleteTag(tag.id);
-                }
-
-                initializeTagsPics(newTagNames, picture.id);
+                picture.img.data = fs.readFileSync(req.file.path);
+                picture.img.path=req.file.path;
+                picture.img.name=req.file.filename;
 
                 picture.save((err) => {
                     if(err) {
@@ -222,12 +238,11 @@ module.exports = {
                     return;
                 }
 
-                picture.tagNames = picture.tags.map(tag => {return tag.name});
+                //    picture.tagNames = picture.tags.map(tag => {return tag.name});
                 res.render('picture/delete', picture)
             });
         });
     },
-
     deletePost: (req, res) => {
         let id = req.params.id;
 
@@ -238,20 +253,17 @@ module.exports = {
             res.redirect('/user/login');
             return;
         }
-
         Picture.findById(id).then(picture => {
             req.user.isInRole('Admin').then(isAdmin => {
                 if (!isAdmin && !req.user.isAuthor(picture)) {
                     res.redirect('/');
                     return;
                 }
-
                 Picture.findOneAndRemove({_id: id}).then(picture => {
-                    picture.prepareDeletePic();
-                    res.redirect('/');
+                    picture.prepareDelete();
+                    res.redirect('/home/picture');
                 });
             });
         });
     }
 };
-

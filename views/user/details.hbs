@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="dropdownMenu2">Articles</label>
-                <div class="dropdown col-sm-4">
+                    <label class="col-sm-4 control-label" for="dropdownMenu2">My articles</label>
+                    <div class="dropdown col-sm-4">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Articles
                         <span class="caret"></span>
@@ -47,26 +47,41 @@
                         <li><a class="btn btn-default btn-xs" style="padding: 5px" href="/article/details/{{this.id}}">{{this.title}}</a></li>
                         {{/each}}
                     </ul>
-                </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label" for="dropdownMenu2">Comments</label>
-                        <div class="dropdown col-sm-4">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Comments
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                {{#each comments}}
-                                    <li><a class="btn btn-default btn-xs" style="padding: 5px" href="/article/details/{{this.article.id}}">{{this.article.title}}</a></li>
-                                {{/each}}
-                            </ul>
-                        </div>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="dropdownMenu2">My pictures</label>
+                    <div class="dropdown col-sm-4">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pictures
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            {{#each pictures}}
+                                <li><a class="btn btn-default btn-xs" style="padding: 5px" href="/picture/details/{{this.id}}">{{this.title}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="dropdownMenu2">My videos</label>
+                    <div class="dropdown col-sm-4">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Videos
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            {{#each videos}}
+                                <li><a class="btn btn-default btn-xs" style="padding: 5px" href="/video/details/{{this.id}}">{{this.title}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
                         <button type="submit" class="btn btn-default">Submit</button>
-                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="reset" class="btn btn-default"><a href="/">Back</a></button>
                     </div>
                 </div>
             </fieldset>

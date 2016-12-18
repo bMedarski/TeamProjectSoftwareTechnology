@@ -4,12 +4,28 @@ const Tag = require('mongoose').model('Tag');
 const Comment = require('mongoose').model('Comment');
 const User = require('mongoose').model('User');
 const initializeTags = require('./../models/Tag').initializeTags;
+const Video = require('mongoose').model('Video');
 const moment = require('moment');
 const fs = require("fs");
+
 module.exports = {
+    getVideo: (req, res) => {
+        Video.find({}).sort({date: -1}).limit(3).populate('author').then(video => {
+            /*date = [];
+             for(let i=0;i<pictures.length; i++){
+             date.push(pictures[i].date);
+             }
+             for(let i=0;i<pictures.length; i++){
+             pictures[i].created = moment(date[i]).format("H:mm, DD-MMM-YYYY");
+             }*/
+            Category.find({}).then(categories => {
+                res.render('home/video', {videos: video,categories: categories});
+            });
+        });
+    },
     createGet: (req, res) => {
         if (!req.isAuthenticated()){
-            let returnUrl = '/article/create';
+            let returnUrl = '/video/create';
             req.session.returnUrl = returnUrl;
 
             res.redirect('/user/login');
@@ -17,92 +33,80 @@ module.exports = {
         }
 
         Category.find({}).then(categories => {
-            res.render('article/create', {categories: categories});
+            res.render('video/create', {categories: categories});
         });
     },
     createPost: (req, res) => {
         if(!req.isAuthenticated()) {
-            let returnUrl = '/article/create';
+            let returnUrl = '/video/create';
             req.session.returnUrl = returnUrl;
             res.redirect('/user/login');
             return;
         }
-        let articleArgs = req.body;
+        let videoArgs = req.body;
 
         let errorMsg = '';
-        if (!articleArgs.title){
+        if (!videoArgs.title){
             errorMsg = 'Invalid title!';
-        } else if (!articleArgs.content){
-            errorMsg = 'Invalid content!';
+        } else if (!videoArgs.content){
+            errorMsg = 'Invalid description!';
+        } else if (!videoArgs.link) {
+            errorMsg = 'Invalid link!';
         }
         if (errorMsg) {
-            res.render('article/create', {error: errorMsg});
+            res.render('video/create', {error: errorMsg});
             return;
         }
-        var articleObject = new Article();
+        var videoObject = new Video();
         //console.log(req.file);
-        if(req.file){
-            articleObject.img.data = fs.readFileSync(req.file.path);
-            articleObject.img.path=req.file.path;
-            articleObject.img.contentType='image/png';
-            articleObject.img.name=req.file.filename;
-        }
-        articleObject.author = req.user.id;
-        articleObject.content = req.body.content;
-        articleObject.title = req.body.title;
-        articleObject.category = req.body.category;
-        articleObject.tags = [];
-        Article.create(articleObject).then(article => {
-            let tagNames = articleArgs.tagNames.split(/\s+|,/).filter(tag => {return tag});
-            initializeTags(tagNames, article.id);
-            article.prepareInsert();
-            res.redirect('/');
+        videoObject.author = req.user.id;
+        videoObject.content = req.body.content;
+        videoObject.title = req.body.title;
+        videoObject.category = req.body.category;
+        videoObject.videoLink = req.body.link;
+        Video.create(videoObject).then(video => {
+            video.prepareInsert();
+            res.redirect('/home/video');
         });
     },
 
     details: (req, res) => {
         let id = req.params.id;
+        Video.findById(id).populate('author').then(video => {
 
-        Article.findById(id).populate('author tags').then(article => {
-
-            const date = article.date;
-            article.created = moment(date).format("H:mm, DD-MMM-YYYY");
-
-            Comment.find({article:article.id}).populate('author').then(comment =>{
-
-                const dateComment = comment.date;
-                comment.created = moment(dateComment).format("H:mm, DD-MMM-YYYY");
-
+            Comment.find({video:video.id}).populate('author').then(comment =>{
                 User.findOne({_id:comment.author}).then(user => {
-                    let date = [];
-                    for(let i=0;i<comment.length; i++){
-                     //console.log(comment[i].date);
-                     date.push(moment(comment[i].date).format("H:mm, DD-MMM-YYYY"));
-                     }
-                   /* for(let i=0;i<comment.length; i++){
-                        //console.log(date[i]);
 
-                        /!*date[i] = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
-                        comment[i].date= date[i].substring(0,16);*!/
-                        //comment[i].date = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
-                        //console.log(comment[i].date);
-                    }*/
+                    let date = video.date;
+                    video.date = moment(date).format("H:mm, DD-MMM-YYYY");
+
+                        /* let date = [];
+                         for(let i=0;i<comment.length; i++){
+                             //console.log(comment[i].date);
+                             date.push(moment(comment[i].date).format("H:mm, DD-MMM-YYYY"));
+                         }*/
+                    /* for(let i=0;i<comment.length; i++){
+                     //console.log(date[i]);
+
+                     /!*date[i] = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
+                     comment[i].date= date[i].substring(0,16);*!/
+                     //comment[i].date = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
+                     //console.log(comment[i].date);
+                     }*/
                     if (!req.user){
-                        res.render('article/details', { article: article,comments:comment,author:user,date:date,isUserAuthorized: false});
+                        res.render('video/details', { video: video,comments:comment,author:user,isUserAuthorized: false});
                         return;
                     }
                     req.user.isInRole('Admin').then(isAdmin => {
                         let isUserAuthorized = isAdmin || req.user.isAuthor(comment);
-
-
-                        res.render('article/details', { article: article,comments:comment,author:user, date:date,isUserAuthorized: isUserAuthorized});
+                        res.render('video/details', { video: video,comments:comment,author:user,isUserAuthorized: isUserAuthorized});
                     });
                 });
             });
         });
     },
 
-    editGet: (req, res) => {
+    /*editGet: (req, res) => {
         let id = req.params.id;
 
         if(!req.isAuthenticated()){
@@ -238,28 +242,22 @@ module.exports = {
                 }
 
                 Article.findOneAndRemove({_id: id}).then(article => {
-                   article.prepareDelete();
-                   res.redirect('/');
+                    article.prepareDelete();
+                    res.redirect('/');
                 });
             });
         });
-    },
+    },*/
 
-    searchArticleGet: (req,res) => {
+    searchVideoGet: (req,res) => {
 
         let searchArgs = req.body.search;
         //console.log(req.body.search);
         //console.log(searchArgs.search);
-            Article.find({ content: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).populate('author tags').then(article => {
-                Tag.populate(article, {path: 'tags'}, (err) =>{
-                    if (err) {
-                        console.log(err.message);
-                    }
-            res.render('home/article', {articles:article});
-                });
+        Video.find({ title: { $regex: searchArgs, $options: 'i' } }).sort({date: -1}).populate('author').then(video => {
+
+
+            res.render('home/searchVideo', {videos:video});
         });
-
-        //res.redirect('home/index');
     }
-
 };

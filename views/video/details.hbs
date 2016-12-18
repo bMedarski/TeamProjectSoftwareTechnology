@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <article class="body-main main-article">
+                <h2 class="mainColor " style="margin-bottom: 0">{{ video.title }}</h2>
+                <p class="lead" style="margin-bottom: 8px">
+                    by <a href="#" class="mainColor authorArt" >{{video.author.fullName}}</a>
+                </p>
+                <p><span class=""></span>{{video.date}}</p>
+                <!--<h2>
+                    <a href="/picture/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
+                </h2>-->
+                <p class="video-details">
+                    {{{video.videoLink}}}
+                </p>
+                <p class="text-video-details">
+                    {{ video.content }}
+                </p>
+                <hr class="hr"/>
+                <div class="pull-right">
+                    {{#if isUserAuthorized}}
+                        <a class="btn btn-default" style="padding: 10px" href="/picture/edit/{{video.id}}">Edit &raquo;</a>
+                        <a class="btn btn-default" style="padding: 10px" href="/picture/delete/{{video.id}}">Delete &raquo;</a>
+                    {{/if}}
+                    <a class="btn btn-default" style="padding: 10px" href="/home/video">Back &raquo;</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+

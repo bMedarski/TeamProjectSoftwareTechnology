@@ -4,6 +4,7 @@ const Category = mongoose.model('Category');
 const Tag = mongoose.model('Tag');
 const Article = mongoose.model('Article');
 const Picture = mongoose.model('Picture');
+const Video = mongoose.model('Video');
 const moment = require('moment');
 
 module.exports = {
@@ -60,14 +61,23 @@ module.exports = {
                 if (err) {
                     console.log(err.message);
                 }
-                Tag.populate(category.pictures, {path: 'tags'}, (err) =>{
-                    if (err) {
-                        console.log(err.message);
-                    }
 
-                    res.render('home/picture-categories', {pictures: category.pictures})
-                });
+                    res.render('home/picture-categories', {pictures: category.pictures});
             });
         });
+    },
+    listCategoryVideos: (req, res) => {
+        let id = req.params.id;
+
+        Category.findById(id).populate('videos').then(category => {
+            User.populate(category.videos,{path: 'author'}, (err) =>{
+                if (err) {
+                    console.log(err.message);
+                }
+
+
+                    res.render('home/video-categories', {videos: category.videos})
+                });
+            });
     }
 };

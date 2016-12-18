@@ -1,49 +1,8 @@
-<!--
 <div class="container body-content">
     <div class="row">
         {{#each articles}}
             <div class="col-md-6">
-                <article class="body-main">
-                    <header>
-                        <h2>{{ this.title }}</h2>
-                    </header>
-
-                    <p>
-                        {{ this.content }}
-                    </p>
-
-                    <p>
-                        {{#each this.tags }}
-                            <a class="btn btn-default btn-xs"
-                               href="/tag/{{this.name}}">{{ this.name }}</a>
-                        {{/each}}
-                    </p>
-                    <small class="author">
-                        {{ this.author.fullName }}
-                    </small>
-
-                    <footer class="footer clearfix">
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs" style="padding: 5px"
-                               href="/article/details/{{this.id}}">Read more &raquo;</a>
-                        </div>
-                    </footer>
-                </article>
-            </div>
-        {{/each}}
-    </div>
-</div>
--->
-<div class="container body-content">
-    <!--{{#each category}}
-        <h1>Searching by Category -
-            {{this.name}}
-        </h1>
-    {{/each}}-->
-    <div class="row">
-        {{#each articles}}
-            <div class="col-md-6">
-                <article class="body-main body-main main-article">
+                <article class="body-main main-article">
                     <h2 class="mainColor " style="margin-bottom: 0">{{ this.title }}</h2>
                     <p class="lead" style="margin-bottom: 8px">
                         by <a href="#" class="mainColor authorArt" >{{ this.author.fullName }}</a>
@@ -61,7 +20,7 @@
                                href="/tag/{{this.name}}">{{ this.name }}</a>
                         {{/each}}
                     </div>
-                    <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <span class=""></span></a>
+                    <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <i class="fa fa-forward" aria-hidden="true"></i><span class=""></span></a>
                 </article>
             </div>
         {{/ each}}

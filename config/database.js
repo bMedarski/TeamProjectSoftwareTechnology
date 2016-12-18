@@ -21,4 +21,5 @@ module.exports = (config) => {
     require('./../models/Comment');
     require('./../models/Category');
     require('./../models/Tag');
+    require('./../models/Video');
 };

@@ -1,0 +1,20 @@
+<div class="container body-content">
+    <div class="row">
+        {{#each videos}}
+            <div class="col-md-6">
+                <article class="body-main main-article">
+                    <h2 class="mainColor " style="margin-bottom: 0">{{ this.title }}</h2>
+                    <p class="lead" style="margin-bottom: 8px">
+                        by <a href="#" class="mainColor authorArt" >{{ this.author.fullName }}</a>
+                    </p>
+                    <p class="text clearfix">
+                        {{{this.videoLink}}}
+                        {{ this.content }}
+                    </p>
+                    <hr class="hr"/>
+                    <a class="btn btn-default pull-right" href="/video/details/{{this.id}}">Read More <i class="fa fa-forward" aria-hidden="true"></i><span class=""></span></a>
+                </article>
+            </div>
+        {{/ each}}
+    </div>
+</div>

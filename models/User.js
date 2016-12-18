@@ -10,6 +10,7 @@ let userSchema = mongoose.Schema(
         img:{data:Buffer,contentType:String,path:String,name:String,required: false},
         articles: [{type: mongoose.Schema.Types.ObjectId, ref:'Article'}],
         pictures: [{type: mongoose.Schema.Types.ObjectId, ref:'Picture'}],
+        videos: [{type: mongoose.Schema.Types.ObjectId, ref:'Video'}],
         comments: [{type: mongoose.Schema.Types.ObjectId, ref:'Comment'}],
         roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],
         salt: {type: String, required: true}
@@ -79,7 +80,7 @@ const User = mongoose.model('User', userSchema);
 module.exports = User;
 
 module.exports.seedAdmin = () => {
-    let email = 'admin@softuni.bg';
+    let email = 'admin@gmail.com';
     User.findOne({email: email}).then(admin => {
         if (!admin) {
             Role.findOne({name: 'Admin'}).then(role => {
@@ -94,6 +95,9 @@ module.exports.seedAdmin = () => {
                     passwordHash: passwordHash,
                     fullName: 'Admin',
                     articles: [],
+                    videos: [],
+                    pictures: [],
+                    comments: [],
                     salt: salt,
                     roles: roles
                 };

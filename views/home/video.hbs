@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 body-main categories">
+            <div class="well">
+                <h4 class="blog-categories-home">Blog Categories</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled">
+                            {{#each categories}}
+                                <li><a href="/category/video/{{ this.id }}">{{ this.name }} ({{ this.videos.length }})</a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="well">
+                {{#if user}}
+                    <a href="/video/create" class="btn btn-default">New Video&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                {{/if}}
+                <hr class="hr"/>
+                <form class="form-horizontal" method="POST" action="/home/video">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {{#each videos}}
+                <div class="col-md-12">
+                    <article class="body-main main-article">
+                        <h2 class="mainColor " style="margin-bottom: 0">{{ this.title }}</h2>
+                        <p class="lead" style="margin-bottom: 8px">
+                            by <a href="#" class="mainColor authorArt" >{{ this.author.fullName }}</a>
+                        </p>
+                        <div class=" video">
+                            {{{this.videoLink}}}
+
+                        </div>
+                        <!--<p class="text-video">
+                            {{ this.content }}
+                        </p>-->
+                        <hr class="hr"/>
+                        <a class="btn btn-default pull-right" href="/video/details/{{this.id}}">Read More <span class=""></span></a>
+                    </article>
+                </div>
+            {{/ each}}
+        </div>
+    </div>
+</div>

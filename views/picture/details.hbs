@@ -1,0 +1,56 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <article class="body-main main-article">
+                    <h2 class="mainColor " style="margin-bottom: 0">{{ picture.title }}</h2>
+                    <p class="lead" style="margin-bottom: 8px">
+                        by <a href="#" class="mainColor authorArt" >{{picture.author.fullName}}</a>
+                    </p>
+                    <p><span class=""></span>{{picture.created}}</p>
+                    <h2>
+                        <a href="/picture/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
+                    </h2>
+
+                        <img class="single-img" src="/uploads/{{picture.img.name}}" alt="">
+
+                    <hr class="hr"/>
+                    <div class="pull-right">
+                        {{#if isUserAuthorized}}
+                            <a class="btn btn-default" style="padding: 10px" href="/picture/edit/{{picture.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                            <a class="btn btn-default" style="padding: 10px" href="/picture/delete/{{picture.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                        {{/if}}
+                        <a class="btn btn-default" style="padding: 10px" href="/home/picture"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                    </div>
+                </article>
+                {{#if user}}
+                    <div class="col-md-12">
+                        <article class="comment">
+                            <form class="form-horizontal" method="POST" action="/picture/details/{{picture.id}}">
+                                <fieldset>
+                                    <textarea class="form-control" id="comments" rows="2" name="comment" required></textarea>
+                                    <button type="submit" class="btn btn-default pull-right"><i class="fa fa-comments-o" aria-hidden="true"></i> Add Comment</button>
+                                </fieldset>
+                            </form>
+                        </article>
+                    </div>
+                {{/if}}
+                {{#each comments }}
+                    <div class="col-md-12">
+                        <article class="comment">
+                            <p>{{ this.content }}</p>
+                            <p class=" pull-left">{{date}}</p>
+                            <p class=" pull-right">by {{author.fullName}}</p>
+                            <!--<div class="pull-right">
+                    {{#if isUserAuthorized}}
+                        <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
+                        <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                    {{/if}}
+                    <a class="btn btn-default" style="padding: 10px" href="/">Back &raquo;</a>
+                </div>-->
+                        </article>
+                    </div>
+                {{/each}}
+           </div>
+        </div>
+</div>
+

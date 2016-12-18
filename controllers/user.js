@@ -1,8 +1,11 @@
 const User = require('mongoose').model('User');
 const Role = require('mongoose').model('Role');
 const Article = require('mongoose').model('Article');
+const Picture = require('mongoose').model('Picture');
+const Video = require('mongoose').model('Video');
 const Category = require('mongoose').model('Category');
 const Tag = require('mongoose').model('Tag');
+const Comment = require('mongoose').model('Comment');
 const encryption = require('./../utilities/encryption');
 var fs = require("fs");
 module.exports = {
@@ -97,13 +100,12 @@ module.exports = {
         let user = req.user;
         let userId = user.id;
         Article.find({author:userId}).populate('author').then(article => {
-            Comment.find({author:userId}).populate('article').then(comment => {
-                let date = [];
-
-
-            res.render('user/details', {user:user,articles:article,comments:comment});
+            Picture.find({author:userId}).populate('author').then(picture => {
+                Video.find({author:userId}).populate('author').then(video => {
+            res.render('user/details', {user:user,articles:article,pictures:picture,videos:video});
+                });
+            });
         });
-    });
     },
     detailsPost: (req, res) => {
         let detailsArgs = req.body;

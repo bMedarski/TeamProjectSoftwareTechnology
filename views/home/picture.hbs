@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-3 body-main categories">
             <div class="well">
-                <h4>Blog Categories</h4>
+                <h4 class="blog-categories-home">Blog Categories</h4>
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="list-unstyled">
@@ -12,6 +12,7 @@
                             {{/each}}
                         </ul>
                     </div>
+
                 </div>
             </div>
             <div class="well">
@@ -27,48 +28,22 @@
                 </form>
             </div>
         </div>
-            <div class="col-md-9">
+        <div class="col-md-9">
             {{#each pictures}}
-           <!-- <div class="container">
-            <div class="row">-->
-            <div class="col-md-4 body-img">
-                <div class="hovereffect">
-                    <img class="img-responsive galery-image" src="/uploads/{{this.img.name}}" alt="">
-                    <div class="overlay">
-                        <h2>{{this.title}}</h2>
+                <div class="col-md-4 body-img">
+                    <div class="hovereffect">
+                        <a href="/picture/details/{{this.id}}">
+                            <img class="img-responsive galery-image" src="/uploads/{{this.img.name}}" alt="">
+                            <div class="overlay">
+                                <h2>{{this.title}}</h2>
+                                <!--<a class="btn btn-default pull-right" href="/picture/details/{{this.id}}">See More <span class=""></span></a>
                         <!--<a class="info" href="#">{{this.title}}</a>-->
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <!--</div>
-            </div>-->
-            {{/ each}}
-            </div>
 
-            <!--<div class="col-md-offset-3">
-                <div class="body-main main-article">
-                    <h2>
-                        <a href="/article/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="#" class="mainColor authorArt">{{ this.author.fullName }}</a>
-                    </p>
-                    <p><span class=""></span>{{this.created}}</p>
-                    <p class="text clearfix">
-                        {{#if this.img.name}}
-                            <img class="img-responsive thumbnail" src="/uploads/{{this.img.name}}" alt="">
-                        {{/if}}
-                        {{ this.content }}
-                    </p>
-                    &lt;!&ndash;<img src="/uploads/{{user.img.name}}" class="img-responsive" height="50" width="50"/>&ndash;&gt;
-                    <hr class="hr"/>
-                    <div class="pull-left" style="margin-bottom: 10px">
-                        {{# each this.tags}}
-                            <a class="btn btn-default btn-xs" style="padding:5px 7px;" href="/tag/{{this.name}}">{{ this.name }}</a>
-                        {{/each}}
-                    </div>
-                    <a class="btn btn-default pull-right" href="/article/details/{{this.id}}">Read More <span class=""></span></a>
-                </div>
-            </div>-->
+            {{/ each}}
+        </div>
     </div>
 </div>

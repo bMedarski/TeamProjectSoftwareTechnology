@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 let categorySchema = mongoose.Schema({
     name: {type: String, required: true, unique: true},
     articles: [{type: mongoose.Schema.Types.ObjectId, ref:'Article'}],
+    videos: [{type: mongoose.Schema.Types.ObjectId, ref:'Video'}],
     pictures: [{type: mongoose.Schema.Types.ObjectId, ref:'Picture'}]
 });
 

@@ -1,38 +1,3 @@
-<!--
-<div class="container body-content body-main">
-    <div class="row">
-        <div class="col-md-12">
-            <article>
-                <header>
-                    <h2>{{article.title}}</h2>
-                </header>
-
-                <p>
-                    {{article.content}}
-                </p>
-
-                <small class="author">
-                    {{article.author.fullName}}
-                </small>
-
-                <footer>
-                    <div class="pull-left">
-                        {{# each article.tags}}
-                            <a class="btn btn-default btn-xs " style="padding: 5px" href="/tag/{{this.name}}">{{ this.name }}</a>
-                        {{/each}}
-                    </div>
-                    <div class="pull-right">
-                        {{#if isUserAuthorized}}
-                            <a class="btn btn-success btn-xs" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                            <a class="btn btn-danger btn-xs" href="/article/delete/{{article.id}}">Delete &raquo;</a>
-                        {{/if}}
-                        <a class="btn btn-default btn-xs " style="padding: 5px" href="/">Back &raquo;</a>
-                    </div>
-                </footer>
-            </article>
-        </div>
-    </div>
-</div>-->
 <div class="container body-content">
     <div class="row">
             <div class="col-md-12">
@@ -41,6 +6,7 @@
                     <p class="lead" style="margin-bottom: 8px">
                         by <a href="#" class="mainColor authorArt" >{{article.author.fullName}}</a>
                     </p>
+                    <p><span class=""></span>{{article.created}}</p>
                     <p class="clearfix">
                         {{#if article.img.name}}
                             <img class="img-responsive thumbnail" src="/uploads/{{article.img.name}}" alt="">
@@ -56,10 +22,10 @@
                     </div>
                     <div class="pull-right">
                         {{#if isUserAuthorized}}
-                            <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                            <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                            <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                            <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
                         {{/if}}
-                        <a class="btn btn-default" style="padding: 10px" href="/">Back &raquo;</a>
+                        <a class="btn btn-default" style="padding: 10px" href="/"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
                     </div>
                 </article>
             </div>
@@ -69,7 +35,7 @@
                     <form class="form-horizontal" method="POST" action="/article/details/{{article.id}}">
                         <fieldset>
                                     <textarea class="form-control" id="comments" rows="2" name="comment" required></textarea>
-                                    <button type="submit" class="btn btn-default pull-right">Add Comment</button>
+                                    <button type="submit" class="btn btn-default pull-right"><i class="fa fa-comments-o" aria-hidden="true"></i> Add Comment</button>
                         </fieldset>
                     </form>
                 </article>
