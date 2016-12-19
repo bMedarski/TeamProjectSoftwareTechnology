@@ -523,3 +523,7 @@ table .info,
 .info-text{
     margin-left: 410px;
 }
+.user-lists{
+    border: none;
+    box-shadow: none;
+}
