@@ -117,18 +117,18 @@
 }
 .form-control{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid #51A3A3;
+    border: 2px solid #51A3A3;
     -webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
 .form-control:focus{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid #DD7373;
+    border: 2px solid #DD7373;
     color: honeydew;
 }
 .form-control:hover{
     background-color: rgba(100,100,100,0.8);
-    border: 1px solid #DD7373;
+    border: 2px solid #DD7373;
     color: honeydew;
 }
 legend{
@@ -488,11 +488,9 @@ table .info,
     color: #EAD94C;
     background-color: #0A2342;
     border-radius: 10px;
-    border: 2px solid #DD7373;
+    border: 2px solid #51A3A3;
     padding:10px;
     margin: 10px;
-    box-shadow: 0 0 0 1px #CA1728;
-
 }
 .blog-categories-home{
     color: #EAD94C;
@@ -526,4 +524,7 @@ table .info,
 .user-lists{
     border: none;
     box-shadow: none;
+}
+.not-link:hover{
+    text-decoration: none;
 }
