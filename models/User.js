@@ -34,7 +34,6 @@ userSchema.method ({
 
         return isAuthor;
     },
-
     isInRole: function (roleName) {
        return Role.findOne({name: roleName}).then(role => {
             if (!role){

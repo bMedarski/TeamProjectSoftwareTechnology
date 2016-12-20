@@ -65,20 +65,21 @@ module.exports = {
 
         Article.findById(id).populate('author tags').then(article => {
 
-            const date = article.date;
+            let date = article.date;
             article.created = moment(date).format("H:mm, DD-MMM-YYYY");
 
             Comment.find({article:article.id}).populate('author').then(comment =>{
 
-                const dateComment = comment.date;
-                comment.created = moment(dateComment).format("H:mm, DD-MMM-YYYY");
+                /*let dateComment = comment.date;
+                comment.date = moment(dateComment).format("H:mm, DD-MMM-YYYY");*/
 
+                article.comments = comment;
                 User.findOne({_id:comment.author}).then(user => {
-                    let date = [];
-                    for(let i=0;i<comment.length; i++){
+                    let dateComment = [];
+                    /*for(let i=0;i<comment.length; i++){
                      //console.log(comment[i].date);
-                     date.push(moment(comment[i].date).format("H:mm, DD-MMM-YYYY"));
-                     }
+                        dateComment.push(moment(comment[i].date).format("H:mm, DD-MMM-YYYY"));
+                     }*/
                    /* for(let i=0;i<comment.length; i++){
                         //console.log(date[i]);
 
@@ -87,19 +88,45 @@ module.exports = {
                         //comment[i].date = moment(comment[i].date).format("H:mm, DD-MMM-YYYY");
                         //console.log(comment[i].date);
                     }*/
+                    //console.log(comment.created);
+                    /*let isUserAuthorized = false;*/
+                    /*if (!req.user){
+                        res.render('article/details', { article: article,comments:comment,author:user,date:comment.created,isUserAuthorized: false});
+                        return;
+                    }*/
+                    //console.log(req.user);
+                    /*req.user.isAuthor('Admin').then(isAdmin => {
+                     console.log(isAdmin);
+                     console.log(req.user.isAuthorComment(comment));
+                     isUserAuthorized = isAdmin || req.user.isAuthorComment(comment);
+                     });*/
+                    //console.log(article.comments.length);
+                    for(let i=0;i<article.comments.length; i++){
+                        dateComment.push(article.comments[i].date);
+                        //console.log(date[i]);
+                        //articles[i].created = moment(date[i].substring(4,15)).format("dd MMM YYYY");
+                    }
+                    for(let i=0;i<article.comments.length; i++){
+                        //date[i]=moment(date[i]);
+                        //articles[i].created=date[i].substring(4,15);
+                        article.comments[i].date = moment(dateComment[i]).format("H:mm, DD-MMM-YYYY");
+                        //console.log(dateComment[i]);
+                        //console.log(article.comments[i].date);
+                    }
+                    //console.log(article.comments);
+                    //article.comments.date = moment(article.comments.date).format("H:mm, DD-MMM-YYYY");
                     if (!req.user){
-                        res.render('article/details', { article: article,comments:comment,author:user,date:date,isUserAuthorized: false});
+                        res.render('article/details', { article: article,comments:comment,author:user,date:dateComment,isUserAuthorized: false});
                         return;
                     }
                     req.user.isInRole('Admin').then(isAdmin => {
-                        let isUserAuthorized = isAdmin || req.user.isAuthor(comment);
+                        let isUserAuthorized = isAdmin || req.user.isAuthor(article);
 
-
-                        res.render('article/details', { article: article,comments:comment,author:user, date:date,isUserAuthorized: isUserAuthorized});
+                        res.render('article/details', { article: article,comments:comment,author:user, date:dateComment,isUserAuthorized: isUserAuthorized});
+                    });
                     });
                 });
             });
-        });
     },
 
     editGet: (req, res) => {

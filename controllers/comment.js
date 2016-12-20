@@ -96,13 +96,54 @@ module.exports = {
         commentObject.content = commentArgs.comment;
         commentObject.author = user.id;
         commentObject.picture = id;
-
-        //console.log(commentObject);
         Comment.create(commentObject).then(comment => {
 
             comment.prepareInsertPic();
             res.redirect('/picture/details/' + id);
         });
 
+    },
+    editGet:(req,res) => {
+        let id = req.params.id;
+        if(!req.isAuthenticated()){
+            let returnUrl = `/article/details/comment/${id}`;
+            req.session.returnUrl = returnUrl;
+            res.redirect('/user/login');
+            return;
+        }
+        Comment.findOne({_id:id}).populate('article').then(comment=>{
+            let author = comment.author;
+            let article=comment.article;
+            req.user.isInRole('Admin').then(isAdmin => {
+                let isUserAuthorizedForEdit = isAdmin || req.user.id==author;
+                if(isUserAuthorizedForEdit){
+
+                    res.render('article/commentEditDelete', {comment, article:comment.article});
+                }else{
+                    res.redirect(`/article/details/${article}`);
+                }
+            });
+        });
+    },
+    editPost:(req,res) => {
+        let commentArgs = req.body.comment;
+        console.log(commentArgs);
+        let id = req.params.id;
+        Comment.findOne({_id:id}).then(comment=>{
+           comment.content = commentArgs;
+            comment.save();
+            let article=comment.article;
+            res.redirect(`/article/details/${article}`);
+        });
+    },
+    deleteGet:(req,res) => {
+        let id = req.params.id;
+        Comment.findOne({_id:id}).then(comment=>{
+            let article=comment.article;
+            Comment.findOneAndRemove({_id:id}).then(comment=>{
+                comment.prepareDelete();
+                res.redirect(`/article/details/${article}`);
+            });
+        });
     }
 };

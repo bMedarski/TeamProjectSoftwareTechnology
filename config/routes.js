@@ -75,6 +75,9 @@ module.exports = (app) => {
     app.post('/home/picture', pictureController.searchPictureGet);
     app.post('/', articleController.searchArticleGet);
 
+    app.get('/article/details/comment/:id', commentController.editGet);
+    app.get('/article/comment/delete/:id', commentController.deleteGet);
+    app.post('/article/comment/edit/:id', commentController.editPost);
 
     app.use((req, res, next) => {
         if (req.isAuthenticated()){

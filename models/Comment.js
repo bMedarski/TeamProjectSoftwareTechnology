@@ -32,6 +32,11 @@ commentSchema.method({
                 user.save();
             }
         });
+        let Article = mongoose.model('Article');
+        Article.findById(this.article).then(article => {
+            article.comments.remove(this.id);
+            article.save();
+        });
     },
     prepareInsertPic: function () {
         let User = mongoose.model('User');
@@ -54,6 +59,11 @@ commentSchema.method({
                 user.comments.remove(this.id);
                 user.save();
             }
+        });
+        let Picture = mongoose.model('Picture');
+        Picture.findById(this.picture).then(picture => {
+            picture.comments.remove(this.id);
+            picture.save();
         });
     }
 });
