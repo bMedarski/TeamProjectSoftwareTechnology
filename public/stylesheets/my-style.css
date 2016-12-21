@@ -537,6 +537,7 @@ table .info,
     padding: 7px;
     font-size: 15px;
     width: 200px;
+    box-shadow: 0 0 0 1px #CA1728;
 }
 .comment-body + .tooltip.bottom  > .tooltip-arrow {
     border-bottom: 5px solid #EAD94C;
