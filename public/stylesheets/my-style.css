@@ -11,12 +11,10 @@
     border: 0;
     border-bottom: 3px solid #DD7373;
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     box-shadow: 1px 1px #CA1728;
 }
 .navbar-default .navbar-nav > li > a {
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     font-size: large;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
@@ -26,7 +24,6 @@
 }
 .navbar-default .navbar-brand {
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     font-size: 25px;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
@@ -36,14 +33,12 @@
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     background: rgba(100,100,100,0.5);
 }
 .btn-default {
     color: #EAD94C;
     background: #0A2342;
     border-color: #51A3A3;
-    text-shadow: 1px 1px black;
     webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
 }
@@ -51,18 +46,15 @@
     color: #EAD94C;
     background: rgba(100,100,100,0.8);
     border-color: #DD7373;
-    text-shadow: 1px 1px black;
 }
 .btn-default:active{
     color: #EAD94C;
     background: rgba(100,100,100,0.5);
     border-color: #DD7373;
-    text-shadow: 1px 1px black;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #EAD94C;
     background: rgba(100,100,100,0.5);
-    text-shadow: 2px 2px black;
 }
 .dropdown-menu > li > a {
     display: block;
@@ -72,7 +64,6 @@
     line-height: 1.42857143;
     color: #EAD94C;
     white-space: nowrap;
-    text-shadow: 2px 2px black;
 }
 .dropdown-menu > li > a:hover {
     display: block;
@@ -83,7 +74,6 @@
     color: #EAD94C;
     white-space: nowrap;
     background: rgba(100,100,100,0.5);
-    text-shadow: 2px 2px black;
 }
 .dropdown-menu {
     position: absolute;
@@ -103,7 +93,6 @@
     background-clip: padding-box;
     border: 2px solid #DD7373;
     border-radius: 4px;
-    text-shadow: 2px 2px black;
     box-shadow: 0 0 0 1px #CA1728;
 }
 .dropdown-menu .divider {
@@ -139,7 +128,6 @@ legend{
 }
 .body-main{
     color: honeydew;
-    text-shadow: 2px 2px black;
     background-color: #0A2342;
     margin-top: 0;
     border-radius: 10px;
@@ -154,7 +142,6 @@ legend{
 .footer{
     text-align: center;
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     font-size: 20px;
     border-bottom: none;
     position: relative;
@@ -164,7 +151,6 @@ legend{
 }
 .page-header {
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     padding-bottom: 9px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #DD7373;
@@ -179,7 +165,6 @@ legend{
 }
 .body{
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     background-color: rgba(100,100,100,0.9);
     border-radius: 10px;
     border: 1px solid #DD7373;
@@ -212,11 +197,9 @@ legend{
 }
 .list-unstyled > li > a{
     color: honeydew;
-    text-shadow: 2px 2px black;
 }
 .mainColor{
     color: #EAD94C;
-    text-shadow: 2px 2px black;
 }
 .page-header{
     margin: 0;
@@ -254,25 +237,20 @@ a {
 #select{
     background-color: rgba(100,100,100,0.9);
     color: honeydew;
-    text-shadow: 2px 2px black;
 }
 #select:hover{
     color: honeydew;
-    text-shadow: 2px 2px black;
     border: 1px solid #DD7373;
 }
 .option:hover{
     color: #EAD94C;
-    text-shadow: 2px 2px black;
     border: 1px solid #DD7373;
 }
 .option {
     background: rgba(100,100,100,0.9);
     color:honeydew;
-    text-shadow:2px 2px black;
 }
 small .author{
-    text-shadow: 2px 2px black;
     color:    #EAD94C;
 }
 .categories{
@@ -349,7 +327,6 @@ table .info,
 }
 .modal-footer{
     color: #EAD94C;
-    text-shadow: 1px 1px black;
     font-size: 14pt;
     /font-weight: bold;
     text-align: center;
@@ -463,7 +440,6 @@ table .info,
 }
 .comment{
     color: honeydew;
-    text-shadow: 2px 2px black;
     background-color: #0A2342;
     border-radius: 10px;
     border: 2px solid #DD7373;
