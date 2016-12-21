@@ -79,6 +79,10 @@ module.exports = (app) => {
     app.get('/article/comment/delete/:id', commentController.deleteGet);
     app.post('/article/comment/edit/:id', commentController.editPost);
 
+    app.get('/picture/details/comment/:id', commentController.editGetPic);
+    app.get('/picture/comment/delete/:id', commentController.deleteGetPic);
+    app.post('/picture/comment/edit/:id', commentController.editPostPic);
+
     app.use((req, res, next) => {
         if (req.isAuthenticated()){
             req.user.isInRole('Admin').then(isAdmin=>{

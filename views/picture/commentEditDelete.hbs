@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <article class="body-main main-article">
+                <h2 class="mainColor " style="margin-bottom: 0; text-align: center">{{ picture.title }}</h2>
+                <img class="single-img" src="/uploads/{{picture.img.name}}" alt="">
+            </article>
+        </div>
+        <div class="col-md-12">
+            <article class="comment">
+                <form class="form-horizontal" method="POST" action="/picture/comment/edit/{{comment.id}}">
+                    <fieldset>
+                        <textarea class="form-control" id="comments-edit" rows="2" name="comment" required>{{comment.content}}</textarea>
+                        <a class="btn btn-default pull-right" style="padding: 10px;margin-left: 5px" href="/picture/details/{{comment.picture.id}}"><i class="fa fa-backward" aria-hidden="true"></i> &nbsp;&nbsp;Back</a>
+                        <a class="btn btn-default pull-right" style="padding: 10px;margin-left: 5px" href="/picture/comment/delete/{{comment.id}}"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Delete</a>
+                        <button type="submit" class="btn btn-default pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Edit</button>
+                    </fieldset>
+                </form>
+            </article>
+        </div>
+    </div>
+</div>

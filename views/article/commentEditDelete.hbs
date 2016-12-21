@@ -3,10 +3,7 @@
         <div class="col-md-12">
             <article class="body-main body-main main-article">
                 <h2 class="mainColor " style="margin-bottom: 0">{{ comment.article.title }}</h2>
-                <!--<p class="lead" style="margin-bottom: 8px">
-                    by <a href="#" class="mainColor authorArt" >{{comment.article.author.fullName}}</a>
-                </p>
-                <p><span class=""></span>{{comment.article.created}}</p>-->
+
                 <p class="clearfix text">
                     {{#if comment.article.img.name}}
                         <img class="img-responsive thumbnail" src="/uploads/{{article.img.name}}" alt="">
@@ -14,19 +11,6 @@
                     {{ comment.article.content }}
                 </p>
                 <hr class="hr"/>
-                <!--<div class="pull-left" style="margin-bottom: 10px">
-                    {{#each comment.article.tags }}
-                        <a class="btn btn-default btn-xs" style="padding:5px 7px;"
-                           href="/tag/{{this.name}}">{{ this.name }}</a>
-                    {{/each}}
-                </div>-->
-                <!--<div class="pull-right">
-                    &lt;!&ndash;{{#if isUserAuthorized}}
-                        <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp; Edit</a>
-                        <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Delete</a>
-                    {{/if}}&ndash;&gt;
-                    <a class="btn btn-default" style="padding: 10px" href="/article/details/{{comment.article.id}}"><i class="fa fa-backward" aria-hidden="true"></i> &nbsp;&nbsp;Back</a>
-                </div>-->
             </article>
         </div>
         <div class="col-md-12">
@@ -37,9 +21,7 @@
                         <a class="btn btn-default pull-right" style="padding: 10px;margin-left: 5px" href="/article/details/{{comment.article.id}}"><i class="fa fa-backward" aria-hidden="true"></i> &nbsp;&nbsp;Back</a>
                         <a class="btn btn-default pull-right" style="padding: 10px;margin-left: 5px" href="/article/comment/delete/{{comment.id}}"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Delete</a>
                         <button type="submit" class="btn btn-default pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Edit</button>
-                        <!--<button type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp; Edit</button>
-                        <button type="submit" class="btn btn-default pull-right"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp; Delete</button>
-                        <button type="submit" class="btn btn-default pull-right"><i class="fa fa-backward" aria-hidden="true"></i> &nbsp;&nbsp;Back</button>-->
+
                     </fieldset>
                 </form>
             </article>

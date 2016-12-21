@@ -512,7 +512,7 @@ table .info,
 .blog-categories-home-listed{
     color: honeydew;
 }
-.pull-right{
+.pull-right, .pull-left{
     color: #EAD94C;
 }
 .text-video{
@@ -553,4 +553,23 @@ table .info,
 .comment-body:hover{
     text-decoration: none;
     color: honeydew;
+}
+.comment-body + .tooltip > .tooltip-inner {
+    background-color: #0A2342;
+    color: #EAD94C;
+    border: 2px solid #DD7373;
+    padding: 7px;
+    font-size: 15px;
+    width: 200px;
+}
+.comment-body + .tooltip.bottom  > .tooltip-arrow {
+    border-bottom: 5px solid #EAD94C;
+}
+.searchButton{
+    height: 45px;
+    border-right: none;
+}
+.createBtn{
+    margin-bottom: 20px;
+    width: 170px;
 }

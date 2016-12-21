@@ -113,6 +113,7 @@ module.exports = {
                         //console.log(dateComment[i]);
                         //console.log(article.comments[i].date);
                     }
+
                     //console.log(article.comments);
                     //article.comments.date = moment(article.comments.date).format("H:mm, DD-MMM-YYYY");
                     if (!req.user){

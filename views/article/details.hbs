@@ -44,15 +44,16 @@
         {{#each comments }}
         <div class="col-md-12">
             <article class="comment">
-                <a class="comment-body" href="/article/details/comment/{{this.id}}"><p>{{ this.content }}</p></a>
+                <a class="comment-body" href="/article/details/comment/{{this.id}}" data-toggle="tooltip" data-placement="top" title="Edit/Delete Comment!"><p>{{ this.content }}</p></a>
                 <p class=" pull-left">{{this.date}}</p>
                 <p class=" pull-right comment-author-text">{{author.fullName}}</p>
-                <!--{{#if ../isUserAuthorized}}
-                    <a class="pull-right" href="/article/delete/{{article.id}}">Delete</a>
-                    <a class="pull-right" style="margin-right: 10px;" href="/article/edit/{{article.id}}">Edit</a>
-                {{/if}}-->
             </article>
         </div>
         {{/each}}
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

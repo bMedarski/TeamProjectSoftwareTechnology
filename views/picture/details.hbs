@@ -6,7 +6,7 @@
                     <p class="lead" style="margin-bottom: 8px">
                         by <a href="#" class="mainColor authorArt" >{{picture.author.fullName}}</a>
                     </p>
-                    <p><span class=""></span>{{picture.created}}</p>
+                    <p><span class=""></span>{{date}}</p>
                     <h2>
                         <a href="/picture/details/{{this.id}}" class="mainColor">{{ this.title }}</a>
                     </h2>
@@ -22,6 +22,7 @@
                         <a class="btn btn-default" style="padding: 10px" href="/home/picture"><i class="fa fa-backward" aria-hidden="true"></i> &nbsp;&nbsp;Back</a>
                     </div>
                 </article>
+                </div>
                 {{#if user}}
                     <div class="col-md-12">
                         <article class="comment">
@@ -37,20 +38,16 @@
                 {{#each comments }}
                     <div class="col-md-12">
                         <article class="comment">
-                            <p>{{ this.content }}</p>
-                            <p class=" pull-left">{{date}}</p>
-                            <p class=" pull-right">by {{author.fullName}}</p>
-                            <!--<div class="pull-right">
-                    {{#if isUserAuthorized}}
-                        <a class="btn btn-default" style="padding: 10px" href="/article/edit/{{article.id}}">Edit &raquo;</a>
-                        <a class="btn btn-default" style="padding: 10px" href="/article/delete/{{article.id}}">Delete &raquo;</a>
-                    {{/if}}
-                    <a class="btn btn-default" style="padding: 10px" href="/">Back &raquo;</a>
-                </div>-->
+                            <a class="comment-body" href="/picture/details/comment/{{this.id}}" data-toggle="tooltip" data-placement="top" title="Edit/Delete Comment!"><p>{{ this.content }}</p></a>
+                            <p class=" pull-left">{{this.date}}</p>
+                            <p class=" pull-right comment-author-text">{{author.fullName}}</p>
                         </article>
                     </div>
                 {{/each}}
-           </div>
+            </div>
         </div>
-</div>
-
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
