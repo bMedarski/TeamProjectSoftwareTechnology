@@ -62,7 +62,8 @@ module.exports = {
     },
     details: (req, res) => {
         let id = req.params.id;
-        Picture.findById(id).populate('author tags').then(picture => {
+        Picture.findById({_id:id}).populate('author').then(picture => {
+            //console.log(picture);
             let date = moment(picture.date).format("H:mm, DD-MMM-YYYY");
             Comment.find({picture:picture.id}).populate('author').then(comment =>{
                 User.findOne({_id:comment.author}).then(user => {

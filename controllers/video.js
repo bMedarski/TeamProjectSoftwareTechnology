@@ -98,7 +98,7 @@ module.exports = {
                         return;
                     }
                     req.user.isInRole('Admin').then(isAdmin => {
-                        let isUserAuthorized = isAdmin || req.user.isAuthor(comment);
+                        let isUserAuthorized = isAdmin || req.user.isAuthor(video);
                         res.render('video/details', { video: video,comments:comment,author:user,isUserAuthorized: isUserAuthorized});
                     });
                 });
